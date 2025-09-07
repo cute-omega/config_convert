@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 permissions:
-  contents: read
+  contents: write
 
 on:
   schedule:
