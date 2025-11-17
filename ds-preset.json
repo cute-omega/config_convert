@@ -1131,7 +1131,7 @@
 	},
 	"proxy": {
 		"excludeIpList": {
-			//悠悠有品的图片地址
+			"desc": "悠悠有品的图片地址"，
 			"*youpinimg.com": true,
 			"*.live.com": false,
 			"*steaminventoryhelper.com": true,
