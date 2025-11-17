@@ -101,7 +101,7 @@
 			},
 			"*233v2.com": {
 				".*": {
-					"sni": "www.baidu.com" 
+					"sni": "www.baidu.com"
 				}
 			},
 			"*.yahoo.com": {
