@@ -1,7 +1,6 @@
 sc-config.json
-ds-config.json
-*/sc-config.json
-*/ds-config.json
+sc-config.json5
+
 dist/
 __pycache__/
 *.pyc
