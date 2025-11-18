@@ -637,7 +637,7 @@
         "2001:67c:2960:6464::23ba:e018": true
       },
       "itch.io": {
-        "45.79.115.66": true
+        "142.171.75.212": true
       },
       "a5.behance.net": {
         "13.35.185.106": true
@@ -846,9 +846,6 @@
       },
       "cdn-uploads.huggingface.co": {
         "3.167.200.113": true
-      },
-      "hub.docker.com": {
-        "54.208.73.48": true
       },
       "*vercel.app": {
         "64.29.17.193": true
@@ -1131,7 +1128,7 @@
   },
   "proxy": {
     "excludeIpList": {
-      "desc": "悠悠有品的图片地址",
+      //悠悠有品的图片地址
       "*youpinimg.com": true,
       "*.live.com": false,
       "*steaminventoryhelper.com": true,
@@ -1139,7 +1136,7 @@
       "testzs.cn": true,
       "*.zhihu.com": true,
       "*.hdslb.*": true,
-      "*ali*": true
+      "*.cn": true
     }
   }
 }

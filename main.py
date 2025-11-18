@@ -1,4 +1,4 @@
-from json import dump, load, loads
+from json5 import dump, load, loads
 import logging
 from requests import get
 from requests.exceptions import SSLError, ConnectTimeout, ReadTimeout, Timeout
@@ -12,10 +12,10 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
 )
 
-preset_fn = "ds-preset.json"
-postset_fn = "ds-postset.json"
-ds_fn = "ds-config.json"
-ExcludedDomains_fn = "ExcludedDomains.json"
+preset_fn = "ds-preset.json5"
+postset_fn = "ds-postset.json5"
+ds_fn = "ds-config.json5"
+ExcludedDomains_fn = "ExcludedDomains.json5"
 
 # Domains that should not be proxied now
 # 读取 ExcludedDomains
