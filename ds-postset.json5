@@ -1,0 +1,19 @@
+{
+  server: {
+    intercepts: {
+      "*.googlevideo.com": {
+        ".*": {
+          sni: null,
+        },
+      },
+    },
+    preSetIpList: {
+      "*.googlevideo.com": null,
+    },
+  },
+  proxy: {
+    excludeIpList: {
+      "*ali*": null,
+    },
+  },
+}

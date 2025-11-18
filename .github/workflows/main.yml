@@ -4,8 +4,8 @@ permissions:
 
 on:
   schedule:
-    - cron: '0,30 * * * *'  # 在每小时的00分和30分运行
-  workflow_dispatch:  # 允许手动触发
+    - cron: "0,30 * * * *" # 在每小时的00分和30分运行
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   build-and-deploy:
@@ -13,11 +13,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Ensure the workflow can push back to the repo
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -26,6 +29,20 @@ jobs:
 
       - name: Run config converting script
         run: python main.py
+
+      - name: Commit and push changes to this repository
+        # Use GITHUB_TOKEN (automatically provided) and repository write permission above
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          # Add all changes made by the converter. Adjust path if you only want specific files.
+          git add -A
+          git status --porcelain
+          git commit -m "Update generated config by workflow" || echo "No changes to commit"
+          # Push to the current branch name (works with branches or schedule jobs on default branch)
+          git push origin HEAD:refs/heads/${{ github.ref_name }} || echo "Push failed"
 
       - name: Push to Pages repo
         run: |
