@@ -41,8 +41,8 @@ class DevSidecarConfig(dict):
                     target_dict[key] = value
         return DevSidecarConfig(dest)
 
-    def __sub__(self, ExcludedDomains: list[str]) -> Self:
+    def __sub__(self, excluded_domains: list[str]) -> Self:
         for k in list(self.keys()):
-            if k in ExcludedDomains:
+            if k in excluded_domains:
                 del self[k]
         return self

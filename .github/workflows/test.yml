@@ -10,7 +10,7 @@ on:
     paths:
       - "**/*.py"
       - "requirements.txt"
-      - "ExcludedDomains.json5"
+      - "assets/excluded_domains.json5"
   pull_request:
     branches:
       - dev
@@ -18,7 +18,7 @@ on:
     paths:
       - "**/*.py"
       - "requirements.txt"
-      - "ExcludedDomains.json5"
+      - "assets/excluded_domains.json5"
 
 jobs:
   test:
@@ -41,14 +41,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run config converting script
-        run: python main.py
-
-      - name: Show all files
-        run: ll -R
+        run: python src/main.py
 
       - name: Upload generated config to check
         uses: actions/upload-artifact@v4.4.0
         with:
-          path: "ds-config.json"
-          name: "ds-config"
+          path: "assets/final_config.json"
+          name: "final_config.json"
           if-no-files-found: error

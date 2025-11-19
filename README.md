@@ -7,13 +7,17 @@
 
 ## 脚本当前工作流：
 
-`8odream.config + sheas_cealer.config + postset.config - ExcludedDomains`
+`default_remote.config + 8odream.config + sheas_cealer.config + manual.config - excluded_domains`
+
+`default_remote.config`来自[Dev-Sidecar内置的默认远程配置地址](https://gitee.com/wangliang181230/dev-sidecar/raw/docmirror2.x/packages/core/src/config/remote_config.json)
 
 `8odream.config`来自[8odream/Dev-sidecar-8odream-config](https://github.com/8odream/Dev-sidecar-8odream-config)
 
 `sheas_cealer.config`来自[SpaceTimee/Cealing-Host](https://github.com/SpaceTimee/Cealing-Host)
 
-`postset.config`是本仓库手动配置的后置设置文件，包含一些额外的配置调整。
+`manual.config`是[本仓库手动配置的收尾设置文件](https://github.com/cute-omega/config_convert/blob/main/assets/manual_config.json5)，包含一些额外的配置调整。
+
+**注意**：示范中的加法不满足交换律，从左向右结合。右边的配置效力高于左边的。
 
 代码已经得到优化，更方便的支持扩展其他所需合并的配置文件。
 
@@ -25,7 +29,7 @@
 git clone https://github.com/cute-omega/config_convert.git
 cd config_convert
 pip3 install -r requirements.txt
-python3 main.py
+python3 src/main.py
 ```
 
 ## 开发
