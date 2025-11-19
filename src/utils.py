@@ -1,8 +1,8 @@
-from ipaddress import ip_address
-from venv import logger
-from DevSidecarConfig import DevSidecarConfig
-from json import loads
 from logging import getLogger
+from ipaddress import ip_address
+from json import loads
+
+from DevSidecarConfig import DevSidecarConfig
 
 logger = getLogger(__name__)
 
@@ -27,6 +27,8 @@ GITHUB_USER_CONTENT_MIRRORS = [
     "ghproxy.net/https://raw.githubusercontent.com",
 ]
 
+skip_IPv6 = True
+
 
 def is_ipv6_address(target: str) -> bool:
     # 处理形如 [240e::] 的格式
@@ -40,13 +42,13 @@ def is_ipv6_address(target: str) -> bool:
 
 
 def convert_sc_config(
-    sc_config_text: str, ExcludedDomains: list[str]
+    sc_config_text: str, excluded_domains: list[str]
 ) -> DevSidecarConfig:
     try:
         sc_config: list[tuple[list[str], str | None, str]] = loads(sc_config_text)
         logger.info(f"Loaded Sheas Cealer config with {len(sc_config)} items")
     except Exception as e:
-        logger.error(
+        logger.warning(
             f"Failed to load Sheas Cealer config: {e}\nRaw Text:\n{sc_config_text}"
         )
         raise
@@ -64,14 +66,14 @@ def convert_sc_config(
         if target == "":
             target = "127.0.0.1"
 
-        skip_IPv6 = is_ipv6_address(target)
+        is_IPv6 = is_ipv6_address(target)
 
         raw_domains: list[str] = item[0]
         domains = [
             domain
             for raw_domain in raw_domains
             if raw_domain.find("^") == -1
-            and ((domain := raw_domain.lstrip("$#")) not in ExcludedDomains)
+            and ((domain := raw_domain.lstrip("$#")) not in excluded_domains)
         ]
         domain_rules = "|".join(domains)
         if len(domains) > 1:
@@ -82,7 +84,7 @@ def convert_sc_config(
                 domain_rules, {}
             ).setdefault(".*", {})["sni"] = sni
 
-            if not skip_IPv6:
+            if skip_IPv6 and not is_IPv6:
                 ds_config["server"].setdefault("preSetIpList", {}).setdefault(
                     domain_rules, {}
                 )[target] = True
