@@ -62,8 +62,8 @@ class Config:
                     logger.warning(
                         f"Downloaded {self.name} config from {url} cannot be parsed as JSON5: {e}"
                     )
-                    logger.warning("Raw config text:")
-                    logger.warning(config_text)
+                    logger.warning("Raw config text (truncated to 500 chars):")
+                    logger.debug(config_text[:500] + ("...(truncated)" if len(config_text) > 500 else ""))
                     continue
                 else:
                     logger.info(f"Downloaded latest {self.name} config from {url}")
