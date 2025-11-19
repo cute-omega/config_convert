@@ -60,7 +60,7 @@ class Config:
                     loads(config_text)
                 except Exception as e:
                     logger.warning(
-                        f"Downloaded {self.name} config from {url} cannot be parsed: {e}"
+                        f"Downloaded {self.name} config from {url} cannot be parsed as JSON5: {e}"
                     )
                     logger.warning("Raw config text:")
                     logger.warning(config_text)
