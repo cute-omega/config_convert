@@ -26,3 +26,10 @@ python3 main.py
 推送PR前请在本地测试无bug后进行。
 
 main分支仅用于生产用途。
+
+## GitHub Actions 配置
+
+本仓库使用GitHub Actions自动运行配置转换并推送到main分支。由于main分支有分支保护规则，工作流使用Personal Access Token (PAT)来绕过这些规则。
+
+### 所需的Secrets配置：
+- `PAT`: 具有repo权限的Personal Access Token，用于向main分支推送更改

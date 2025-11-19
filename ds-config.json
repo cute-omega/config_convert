@@ -1,6 +1,11 @@
 {
   "server": {
     "intercepts": {
+      "*.googlevideo.com": {
+        ".*": {
+          "sni": null
+        }
+      },
       "cdn.jsdelivr.net": {
         ".*": {
           "sni": "none"
@@ -626,11 +631,6 @@
           "sni": "www.baidu.com"
         }
       },
-      "*.googlevideo.com": {
-        ".*": {
-          "sni": null
-        }
-      },
       "_www.ecosia.org": {
         ".*": {
           "sni": "www.ecosia.org"
@@ -872,6 +872,7 @@
       }
     },
     "preSetIpList": {
+      "*.googlevideo.com": null,
       "cdn.jsdelivr.net": {
         "104.16.89.20": true
       },
@@ -1231,7 +1232,6 @@
         "13.35.222.88": true,
         "13.3.222.88": true
       },
-      "*.googlevideo.com": null,
       "www.ecosia.org": {
         "2001:67c:2960:6464::ac40:9647": true
       },
