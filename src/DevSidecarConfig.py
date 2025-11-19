@@ -1,4 +1,3 @@
-import re
 from typing import Self
 
 __all__ = ["DevSidecarConfig"]
