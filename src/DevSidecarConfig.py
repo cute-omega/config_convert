@@ -44,5 +44,5 @@ class DevSidecarConfig(dict):
     def __sub__(self, excluded_domains: list[str]) -> Self:
         for k in list(self.keys()):
             if k in excluded_domains:
-                del self[k]
+                self.pop(k)
         return self
