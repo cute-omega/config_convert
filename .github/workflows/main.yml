@@ -31,9 +31,9 @@ jobs:
         run: python main.py
 
       - name: Commit and push changes to this repository
-        # Use GITHUB_TOKEN (automatically provided) and repository write permission above
+        # Use PAT to bypass branch protection rules
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{ secrets.PAT }}
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
@@ -41,6 +41,8 @@ jobs:
           git add -A
           git status --porcelain
           git commit -m "Update generated config by workflow" || echo "No changes to commit"
+          # Configure git to use PAT for authentication to bypass branch protection
+          git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
           # Push to the current branch name (works with branches or schedule jobs on default branch)
           git push origin HEAD:refs/heads/${{ github.ref_name }} || echo "Push failed"
 
