@@ -1,4 +1,4 @@
-name: Test
+name: Test Python Code
 permissions:
   contents: write
 
@@ -8,7 +8,7 @@ on:
       - dev
       - main
     paths:
-      - "*.py"
+      - "**/*.py"
       - "requirements.txt"
       - "ExcludedDomains.json5"
   pull_request:
@@ -16,7 +16,7 @@ on:
       - dev
       - main
     paths:
-      - "*.py"
+      - "**/*.py"
       - "requirements.txt"
       - "ExcludedDomains.json5"
 
