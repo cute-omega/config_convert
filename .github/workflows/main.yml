@@ -30,13 +30,6 @@ jobs:
       - name: Run config converting script
         run: python main.py
 
-      - name: Checkout repository for push
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
-          fetch-depth: 0
-          persist-credentials: true
-
       - name: Commit and push changes to this repository
         run: |
           git config user.name "GitHub Actions"
