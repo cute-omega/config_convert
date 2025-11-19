@@ -50,12 +50,11 @@ jobs:
 
       - name: Copy and commit to Pages repo
         run: |
-          cp ds-config.json pages-repo/
           mkdir -p pages-repo/other-assets
           cp ds-config.json pages-repo/other-assets/
           cd pages-repo
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add ds-config.json other-assets/ds-config.json || true
-          git commit -m "Update ds-config.json and copy it to new location for temporary migration solution" || echo "No changes to commit"
+          git add other-assets/ds-config.json || true
+          git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
           git push origin HEAD:refs/heads/main || echo "Push failed"
