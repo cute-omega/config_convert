@@ -31,9 +31,6 @@ jobs:
         run: python main.py
 
       - name: Commit and push changes to this repository
-        # Use PAT to bypass branch protection rules
-        env:
-          PAT: ${{ secrets.PAT }}
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
@@ -41,21 +38,23 @@ jobs:
           git add -A
           git status --porcelain
           git commit -m "Update generated config by workflow" || echo "No changes to commit"
-          # Configure git to use PAT for authentication to bypass branch protection
-          git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
           # Push to the current branch name (works with branches or schedule jobs on default branch)
           git push origin HEAD:refs/heads/${{ github.ref_name }} || echo "Push failed"
 
-      - name: Push to Pages repo
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          repository: cute-omega/cute-omega.github.io
+          token: ${{ secrets.PAT }}
+          path: pages-repo
+
+      - name: Copy and commit to Pages repo
         run: |
-          git clone https://x-access-token:${{ secrets.PAT }}@github.com/cute-omega/cute-omega.github.io.git pages-repo
-          cp ds-config.json pages-repo/
           mkdir -p pages-repo/other-assets
           cp ds-config.json pages-repo/other-assets/
           cd pages-repo
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add ds-config.json
-          git add other-assets/ds-config.json
-          git commit -m "Update ds-config.json and copy it to new location for temporary migration solution" || echo "No changes to commit"
-          git push
+          git add other-assets/ds-config.json || true
+          git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
+          git push origin HEAD:refs/heads/main || echo "Push failed"
