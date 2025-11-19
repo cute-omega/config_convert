@@ -1,3 +1,4 @@
+import re
 from typing import Self
 
 __all__ = ["DevSidecarConfig"]
@@ -45,4 +46,12 @@ class DevSidecarConfig(dict):
         for k in list(self.keys()):
             if k in excluded_domains:
                 self.pop(k)
+            elif isinstance(self[k], DevSidecarConfig):
+                self[k] -= excluded_domains
         return self
+
+    def __iadd__(self, b):
+        return self.__add__(b)
+
+    def __isub__(self, b):
+        return self.__sub__(b)
