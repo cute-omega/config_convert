@@ -65,4 +65,4 @@ jobs:
           git config user.email "actions@github.com"
           git add ds-config.json other-assets/ds-config.json || true
           git commit -m "Update ds-config.json and copy it to new location for temporary migration solution" || echo "No changes to commit"
-          git push origin HEAD:refs/heads/${{ github.ref_name }} || echo "Push failed"
+          git push origin HEAD:refs/heads/main || echo "Push failed"
