@@ -1,11 +1,6 @@
 {
   "server": {
     "intercepts": {
-      "*.googlevideo.com": {
-        ".*": {
-          "sni": null
-        }
-      },
       "cdn.jsdelivr.net": {
         ".*": {
           "sni": "none"
@@ -1197,7 +1192,6 @@
       }
     },
     "preSetIpList": {
-      "*.googlevideo.com": null,
       "cdn.jsdelivr.net": {
         "104.16.89.20": true
       },
