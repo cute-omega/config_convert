@@ -60,8 +60,10 @@ class Config:
                     loads(config_text)
                 except Exception as e:
                     logger.warning(
-                        f"Downloaded {self.name} config from {url} is invalid: {e}"
+                        f"Downloaded {self.name} config from {url} cannot be parsed: {e}"
                     )
+                    logger.warning("Raw config text:")
+                    logger.warning(config_text)
                     continue
                 else:
                     logger.info(f"Downloaded latest {self.name} config from {url}")
