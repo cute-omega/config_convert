@@ -37,8 +37,8 @@ class Config:
         name (str): 配置名称，用于日志记录
 
     Attributes:
-        raw_config (dict | list, auto initial): 仅序列化的原始配置数据
-        config (ExtendedDict, auto initial): 解析后的Dev-Sidecar配置
+        raw_config (dict | list, initialized during object construction): 仅序列化的原始配置数据
+        config (ExtendedDict, initialized during object construction): 解析后的Dev-Sidecar配置
     """
 
     path: str
