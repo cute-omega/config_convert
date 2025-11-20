@@ -15,7 +15,7 @@ __all__ = [
 #   - list[str]: A list of domain names or patterns to match.
 #   - str | None: An optional string representing a redirect target or configuration value (can be None).
 #   - str: A string representing a comment, description, or additional metadata.
-RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
+RawSheasCealerConfig: TypeAlias = list[tuple[list[str], str | None, str]]
 JSON5Object: TypeAlias = (
     dict[str, "JSON5Object"] | list["JSON5Object"] | str | int | float | bool | None
 )
