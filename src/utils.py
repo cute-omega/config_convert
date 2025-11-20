@@ -6,9 +6,6 @@ __all__ = [
     "show_raw_text_for_debugging",
 ]
 
-logger = getLogger(__name__)
-
-
 def is_ipv6_address(target: str) -> bool:
     # 处理形如 [240e::] 的格式
     if target.startswith("[") and target.endswith("]"):
