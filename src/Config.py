@@ -167,14 +167,15 @@ class SheasCealerConfig(Config):
                 domain_rules = f"({domain_rules})"
 
             if domain_rules:
-                ds_config["server"].setdefault("intercepts", {}).setdefault(
-                    domain_rules, {}
-                ).setdefault(".*", {})["sni"] = sni
+                intercepts = ds_config["server"].setdefault("intercepts", {})
+                domain_dict = intercepts.setdefault(domain_rules, {})
+                sni_dict = domain_dict.setdefault(".*", {})
+                sni_dict["sni"] = sni
 
                 if skip_IPv6 and not is_IPv6:
-                    ds_config["server"].setdefault("preSetIpList", {}).setdefault(
-                        domain_rules, {}
-                    )[target] = True
+                    pre_set_ip_list = ds_config["server"].setdefault("preSetIpList", {})
+                    pre_set_domain_dict = pre_set_ip_list.setdefault(domain_rules, {})
+                    pre_set_domain_dict[target] = True
 
         return ds_config
 
