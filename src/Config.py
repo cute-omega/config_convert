@@ -15,7 +15,7 @@ from utils import (
     is_ipv6_address,
     show_raw_text_for_debugging,
 )
-from ExtendedDict import ExtentedDict
+from ExtendedDict import ExtendedDict
 
 __all__ = [
     "GithubConfig",
@@ -37,14 +37,14 @@ class Config:
         name (str): 配置名称，用于日志记录
 
     Attributes:
-        raw_config (JSON5Object, auto initial): 仅序列化的原始配置数据
-        config (ExtentedDict, auto initial): 解析后的Dev-Sidecar配置
+        raw_config (dict | list, auto initial): 仅序列化的原始配置数据
+        config (ExtendedDict, auto initial): 解析后的Dev-Sidecar配置
     """
 
     path: str
     name: str
     raw_config: dict | list = field(init=False)
-    config: ExtentedDict = field(init=False)
+    config: ExtendedDict = field(init=False)
     _default_text: str = field(default="{}")
 
     def __post_init__(self):
@@ -78,6 +78,7 @@ class Config:
                 else:
                     url = f"https://{self.path}"
 
+            r = None
             try:
                 logger.info(f"Trying to download {self.name} config from {url} ...")
                 r = get(url, timeout=10, allow_redirects=True)
@@ -125,9 +126,9 @@ class SheasCealerConfig(Config):
         logger.info(f"Converted Sheas Cealer config to Dev-Sidecar config")
         super().__post_init__()
 
-    def __convert(self) -> ExtentedDict:
+    def __convert(self) -> ExtendedDict:
 
-        ds_config = ExtentedDict({"server": {"intercepts": {}, "preSetIpList": {}}})
+        ds_config = ExtendedDict({"server": {"intercepts": {}, "preSetIpList": {}}})
 
         for item in self.raw_config:
             sni: str | None = item[1]
@@ -175,7 +176,7 @@ class LocalConfig(Config):
     def __post_init__(self):
         with open(self.path) as f:
             self.raw_config = load(f)
-            self.config = ExtentedDict(self.raw_config)
+            self.config = ExtendedDict(self.raw_config)
         super().__post_init__()
 
 
@@ -188,7 +189,7 @@ class GithubConfig(Config):
 
     def __post_init__(self):
         self.raw_config: JSON5Object = self.download(GITHUB_MIRRORS)
-        self.config = ExtentedDict(self.raw_config)
+        self.config = ExtendedDict(self.raw_config)
         super().__post_init__()
 
 
@@ -200,5 +201,5 @@ class RemoteConfig(Config):
 
     def __post_init__(self):
         self.raw_config: JSON5Object = self.download([""])
-        self.config = ExtentedDict(self.raw_config)
+        self.config = ExtendedDict(self.raw_config)
         super().__post_init__()

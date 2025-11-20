@@ -1,17 +1,17 @@
 from typing import Self
 
-__all__ = ["ExtentedDict"]
+__all__ = ["ExtendedDict"]
 
 
-class ExtentedDict(dict):
+class ExtendedDict(dict):
     """一种支持嵌套，且定义了如何递归合并与按key删减的dict类型。"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # 如果参数是一个容器，检查其中元素，如果是dict，则该元素也被替换为ExtentedDict
+        # 如果参数是一个容器，检查其中元素，如果是dict，则该元素也被替换为ExtendedDict
         for key, value in list(self.items()):
-            if isinstance(value, dict) and not isinstance(value, ExtentedDict):
-                self[key] = ExtentedDict(value)
+            if isinstance(value, dict) and not isinstance(value, ExtendedDict):
+                self[key] = ExtendedDict(value)
 
     def __add__(self, dest: dict | Self, rewrite=True):
         """使用迭代方式合并字典，避免递归深度限制。
@@ -21,10 +21,10 @@ class ExtentedDict(dict):
             rewrite (bool, optional): 是否允许覆盖目标dict中的同名键。 Defaults to True.
 
         Returns:
-            ExtentedDict: 合并后的dict
+            ExtendedDict: 合并后的dict
         """
         if self is None:
-            return ExtentedDict(dest)
+            return ExtendedDict(dest)
 
         if dest is None:
             dest = {}
@@ -40,7 +40,7 @@ class ExtentedDict(dict):
                         target_dict[key] = value
                 else:
                     target_dict[key] = value
-        return ExtentedDict(dest)
+        return ExtendedDict(dest)
 
     def __sub__(self, deleted_keys: list[str]) -> Self:
         """按key删除dict中元素。
@@ -53,7 +53,7 @@ class ExtentedDict(dict):
         for k in list(self.keys()):
             if k in deleted_keys:
                 self.pop(k)
-            elif isinstance(self[k], ExtentedDict):
+            elif isinstance(self[k], ExtendedDict):
                 self[k] -= deleted_keys
         return self
 
