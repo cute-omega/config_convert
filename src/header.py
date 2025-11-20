@@ -1,6 +1,5 @@
 from typing import Any
 from os.path import dirname, abspath, join
-from json5 import load
 from logging import getLogger
 
 logger = getLogger(__name__)
