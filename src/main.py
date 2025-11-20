@@ -59,7 +59,12 @@ def main():
     logger.info("Merged all configs and cleared excluded domain rules")
 
     # 保存 Dev-Sidecar 配置
-    # TODO: 与Config.save合并
+    # TODO: Consider refactoring this block to use Config.save for saving the final configuration.
+    # This would centralize all config-saving logic within the Config class/module, ensuring consistency
+    # and reducing code duplication. Specifically, evaluate whether the logic for writing to
+    # final_config_path (including formatting options like ensure_ascii and indent) can be encapsulated
+    # in Config.save, and update this call to use that method. This will make future changes to the
+    # saving process easier to maintain.
     with open(final_config_path, "w") as f:
         dump(final_config, f, ensure_ascii=False, indent=2)
     logger.info(f"Saved final Dev-Sidecar config as {final_config_path}")
