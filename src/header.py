@@ -28,6 +28,9 @@ GITHUB_USER_CONTENT_MIRRORS = [
     "ghproxy.net/https://raw.githubusercontent.com",
 ]
 
+# Flag to control whether IPv6 addresses should be skipped during network operations.
+# Set to True to avoid using IPv6 (e.g., if IPv6 connectivity is unreliable or undesired).
+# Set to False to allow both IPv4 and IPv6 addresses.
 skip_IPv6 = True
 
 excluded_domains_path = abspath(
