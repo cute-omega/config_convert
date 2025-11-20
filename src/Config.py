@@ -121,7 +121,6 @@ class SheasCealerConfig(Config):
     """
 
     def __post_init__(self):
-        self._default_text = "[]"
         self.raw_config: RawSheasCealerConfig = self.download(GITHUB_MIRRORS)
 
         # 解析 raw_config
