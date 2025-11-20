@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
-JSON5Object = RawSheasCealerConfig | dict[str, Any]
+JSON5Object: TypeAlias = dict[str, "JSON5Object"] | list["JSON5Object"] | str | int | float | bool | None
 
 GITHUB_MIRRORS = [
     "github.com",
