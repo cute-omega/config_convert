@@ -57,16 +57,16 @@ class Config:
         logger.info(f"Saved {self.name} config to {fn}")
 
     def download(self, mirrors: list[str]) -> JSON5Object:
-        """从远程下载配置并序列化为JSON5对象，会尝试所有配置的镜像
+        """从远程下载配置并反序列化为JSON5对象，会尝试所有配置的镜像
 
         Args:
             mirrors (list[str]): 下载时指定的镜像域名列表，可以为空列表
 
         Raises:
-            RuntimeError: 所有镜像下载全部失败，或内容全部不可序列化
+            RuntimeError: 所有镜像下载全部失败，或内容全部不可反序列化
 
         Returns:
-            JSON5Object: 序列化后的JSON5对象
+            JSON5Object: 反序列化后的JSON5对象
         """
         config_text = self._default_text
         for mirror in mirrors:
