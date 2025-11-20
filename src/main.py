@@ -1,28 +1,33 @@
 import logging
 from json import dump
-from os.path import dirname, abspath, join
-
+from json5 import load
+import argparse
+from header import final_config_path, manual_path, excluded_domains_path
 from Config import (
     SheasCealerConfig,
     GithubConfig,
     LocalConfig,
     RemoteConfig,
-    excluded_domains,
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] File %(filename)s, line %(lineno)s, in %(module)s.%(funcName)s\n\t%(message)s",
-)
-
-
-manual_path = abspath(join(dirname(__file__), "..", "assets", "manual_config.json5"))
-final_config_path = abspath(
-    join(dirname(__file__), "..", "assets", "final_config.json")
-)
+logger = logging.getLogger(__name__)
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+    args = parser.parse_args()
+    level = logging.DEBUG if args.debug else logging.INFO
+
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s [%(levelname)s] File %(filename)s, line %(lineno)s, in %(module)s.%(funcName)s\n\t%(message)s",
+    )
+
+    # 读取 Excluded domains (Domains that should not be proxied now)
+    with open(excluded_domains_path) as f:
+        excluded_domains: list[str] = load(f)
+    logger.info(f"Loaded excluded_domains from {excluded_domains_path}")
 
     # 获取 Dev-Sidecar 内置默认远程配置
     default_remote = RemoteConfig(
@@ -51,12 +56,18 @@ def main():
         + manual.config
         - excluded_domains
     )
-    logging.info("Merged all configs and cleared excluded domain rules")
+    logger.info("Merged all configs and cleared excluded domain rules")
 
     # 保存 Dev-Sidecar 配置
+    # TODO: Consider refactoring this block to use Config.save for saving the final configuration.
+    # This would centralize all config-saving logic within the Config class/module, ensuring consistency
+    # and reducing code duplication. Specifically, evaluate whether the logic for writing to
+    # final_config_path (including formatting options like ensure_ascii and indent) can be encapsulated
+    # in Config.save, and update this call to use that method. This will make future changes to the
+    # saving process easier to maintain.
     with open(final_config_path, "w") as f:
         dump(final_config, f, ensure_ascii=False, indent=2)
-    logging.info(f"Saved final Dev-Sidecar config as {final_config_path}")
+    logger.info(f"Saved final Dev-Sidecar config as {final_config_path}")
 
 
 if __name__ == "__main__":
