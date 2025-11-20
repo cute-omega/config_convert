@@ -113,7 +113,7 @@ class Config:
 
 class SheasCealerConfig(Config):
     """
-    Sheas Cealer配置，序列化之后会自动转换。
+    Sheas Cealer配置，反序列化之后会自动转换。
 
     raw_config是原始的Sheas Cealer配置list
     """
