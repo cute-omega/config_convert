@@ -148,7 +148,7 @@ class SheasCealerConfig(Config):
             domains = [
                 raw_domain.lstrip("$#")
                 for raw_domain in raw_domains
-                if raw_domain.find("^") == -1
+                if "^" not in raw_domain
             ]
             domain_rules = "|".join(domains)
             if len(domains) > 1:
