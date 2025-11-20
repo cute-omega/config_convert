@@ -68,7 +68,6 @@ class Config:
         Returns:
             JSON5Object: 反序列化后的JSON5对象
         """
-        config_text = self._default_text
         for mirror in mirrors:
             if mirror:
                 url = f"https://{mirror}/{self.path}"
