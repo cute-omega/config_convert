@@ -47,7 +47,11 @@ class Config:
     config: ExtendedDict = field(init=False)
 
     def __post_init__(self):
-        """子类应重写本函数以实现加载配置"""
+        """
+        子类应重写本函数以实现加载配置，并在加载完成后调用 super().__post_init__() 以记录日志。
+        Subclasses should override this method to implement configuration loading,
+        and call super().__post_init__() at the end to log the loading event.
+        """
         logger.info(f"Loaded {self.name} config from {self.path}")
 
     def save(self, fn: str):
@@ -162,14 +166,15 @@ class SheasCealerConfig(Config):
                 domain_rules = f"({domain_rules})"
 
             if domain_rules:
-                ds_config["server"].setdefault("intercepts", {}).setdefault(
-                    domain_rules, {}
-                ).setdefault(".*", {})["sni"] = sni
+                intercepts = ds_config["server"].setdefault("intercepts", {})
+                domain_dict = intercepts.setdefault(domain_rules, {})
+                sni_dict = domain_dict.setdefault(".*", {})
+                sni_dict["sni"] = sni
 
                 if skip_IPv6 and not is_IPv6:
-                    ds_config["server"].setdefault("preSetIpList", {}).setdefault(
-                        domain_rules, {}
-                    )[target] = True
+                    pre_set_ip_list = ds_config["server"].setdefault("preSetIpList", {})
+                    pre_set_domain_dict = pre_set_ip_list.setdefault(domain_rules, {})
+                    pre_set_domain_dict[target] = True
 
         return ds_config
 

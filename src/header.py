@@ -11,7 +11,11 @@ __all__ = [
     "final_config_path",
 ]
 
-RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
+# RawSheasCealerConfig is a list of tuples, where each tuple contains:
+#   - list[str]: A list of domain names or patterns to match.
+#   - str | None: An optional string representing a redirect target or configuration value (can be None).
+#   - str: A string representing a comment, description, or additional metadata.
+RawSheasCealerConfig: TypeAlias = list[tuple[list[str], str | None, str]]
 JSON5Object: TypeAlias = (
     dict[str, "JSON5Object"] | list["JSON5Object"] | str | int | float | bool | None
 )
@@ -28,6 +32,9 @@ GITHUB_USER_CONTENT_MIRRORS = [
     "ghproxy.net/https://raw.githubusercontent.com",
 ]
 
+# Flag to control whether IPv6 addresses should be skipped during network operations.
+# Set to True to avoid using IPv6 (e.g., if IPv6 connectivity is unreliable or undesired).
+# Set to False to allow both IPv4 and IPv6 addresses.
 skip_IPv6 = True
 
 excluded_domains_path = abspath(
