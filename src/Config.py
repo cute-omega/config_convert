@@ -86,7 +86,7 @@ class Config:
                     raise ValueError(f"HTTP {r.status_code} {r.reason} for {url}")
             except Exception as e:
                 logger.warning(f"Failed to download {self.name} config from {url}: {e}")
-                if "r" in locals():
+                if r:
                     logger.debug(f"Request status: {r.status_code} {r.reason}")
                     show_raw_text_for_debugging(self.name, r.text, logger)
                 else:
