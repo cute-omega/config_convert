@@ -17,7 +17,7 @@ __all__ = [
 
 JSON5Object = Any | list[Any | list | bool | None] | bool | None
 
-RawSheasCealerConfig = list[list[str], str | None, str]
+RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
 
 GITHUB_MIRRORS = [
     "github.com",
