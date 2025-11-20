@@ -1,12 +1,12 @@
-from typing import Any
+from typing import Any, TypeAlias
 from os.path import dirname, abspath, join
 from logging import getLogger
 
 logger = getLogger(__name__)
 
 __all__ = [
-    "JSON5Object",
     "RawSheasCealerConfig",
+    "JSON5Object",
     "GITHUB_MIRRORS",
     "GITHUB_USER_CONTENT_MIRRORS",
     "skip_IPv6",
@@ -15,9 +15,8 @@ __all__ = [
     "final_config_path",
 ]
 
-JSON5Object = Any | list[Any | list | bool | None] | bool | None
-
 RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
+JSON5Object = RawSheasCealerConfig | dict[str, Any]
 
 GITHUB_MIRRORS = [
     "github.com",
