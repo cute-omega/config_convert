@@ -126,7 +126,17 @@ class SheasCealerConfig(Config):
         super().__post_init__()
 
     def __convert(self) -> ExtendedDict:
+        """
+        Convert the raw Sheas Cealer configuration to Dev-Sidecar format.
 
+        Iterates over each entry in self.raw_config, extracting domain rules, SNI, and target IPs.
+        - Domains are cleaned and combined into a single rule string.
+        - SNI values are set for each domain rule.
+        - Target IPs are added to the preSetIpList if they are not IPv6 (when skip_IPv6 is enabled).
+
+        Returns:
+            ExtendedDict: The configuration in Dev-Sidecar format, with 'server', 'intercepts', and 'preSetIpList' sections populated.
+        """
         ds_config = ExtendedDict({"server": {"intercepts": {}, "preSetIpList": {}}})
 
         for item in self.raw_config:
