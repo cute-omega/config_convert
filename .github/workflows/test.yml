@@ -40,8 +40,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run config converting script
-        run: python src/main.py
+      - name: Run config converting script in debug mode
+        run: python src/main.py --debug
 
       - name: Upload generated config to check
         uses: actions/upload-artifact@v4.4.0
