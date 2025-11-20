@@ -1,7 +1,7 @@
 import logging
 from json import dump
 from json5 import load
-import sys
+import argparse
 from header import final_config_path, manual_path, excluded_domains_path
 from Config import (
     SheasCealerConfig,
@@ -14,10 +14,10 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "--debug":
-        level = logging.DEBUG
-    else:
-        level = logging.INFO
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+    args = parser.parse_args()
+    level = logging.DEBUG if args.debug else logging.INFO
 
     logging.basicConfig(
         level=level,
