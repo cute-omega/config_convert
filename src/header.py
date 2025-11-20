@@ -1,4 +1,4 @@
-from typing import Any, TypeAlias
+from typing import TypeAlias
 from os.path import dirname, abspath, join
 from logging import getLogger
 
@@ -16,7 +16,9 @@ __all__ = [
 ]
 
 RawSheasCealerConfig = list[tuple[list[str], str | None, str]]
-JSON5Object: TypeAlias = dict[str, "JSON5Object"] | list["JSON5Object"] | str | int | float | bool | None
+JSON5Object: TypeAlias = (
+    dict[str, "JSON5Object"] | list["JSON5Object"] | str | int | float | bool | None
+)
 
 GITHUB_MIRRORS = [
     "github.com",
