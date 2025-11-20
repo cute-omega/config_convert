@@ -45,7 +45,7 @@ class Config:
     name: str
     raw_config: dict | list = field(init=False)
     config: ExtendedDict = field(init=False)
-    _default_text: str = field(default="{}")
+    _default_text: str = field(default="{}", init=False)
 
     def __post_init__(self):
         """子类应重写本函数以实现加载配置"""
@@ -82,7 +82,8 @@ class Config:
             try:
                 logger.info(f"Trying to download {self.name} config from {url} ...")
                 r = get(url, timeout=10, allow_redirects=True)
-                assert r.status_code == 200
+                if r.status_code != 200:
+                    raise ValueError(f"HTTP {r.status_code} {r.reason} for {url}")
             except Exception as e:
                 logger.warning(f"Failed to download {self.name} config from {url}: {e}")
                 if "r" in locals():
