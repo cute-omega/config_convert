@@ -45,7 +45,6 @@ class Config:
     name: str
     raw_config: dict | list = field(init=False)
     config: ExtendedDict = field(init=False)
-    _default_text: str = field(default="{}", init=False)
 
     def __post_init__(self):
         """子类应重写本函数以实现加载配置"""
