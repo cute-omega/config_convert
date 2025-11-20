@@ -1,9 +1,5 @@
 from typing import TypeAlias
 from os.path import dirname, abspath, join
-from logging import getLogger
-
-logger = getLogger(__name__)
-
 __all__ = [
     "RawSheasCealerConfig",
     "JSON5Object",
