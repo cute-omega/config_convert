@@ -2,8 +2,6 @@ import logging
 from json import dump
 from json5 import load
 import sys
-from venv import logger
-
 from header import final_config_path, manual_path, excluded_domains_path
 from Config import (
     SheasCealerConfig,
