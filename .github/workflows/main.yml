@@ -45,8 +45,8 @@ jobs:
           mkdir -p pages-repo/other-assets
           cp assets/final_config.json pages-repo/other-assets/ds-config.json
           cd pages-repo
-          git checkout main || git checkout -b main
+          git checkout master || git checkout -b master
           git add other-assets/ds-config.json || true
           git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
-          git pull origin main
-          git push origin main
+          git pull origin master
+          git push origin master
