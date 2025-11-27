@@ -966,9 +966,9 @@
           "sni": "baidu.com"
         }
       },
-      "fonts.googleapis.com": {
+      "fonts.(googleapis|gstatic).com": {
         ".*": {
-          "abort": true
+          "proxy": "fonts.googleapis.cn"
         }
       },
       "^(?!.*(translate-pa).google(?:apis|usercontent)?.com).*google(?:apis|usercontent)?.com$": {
@@ -1380,23 +1380,10 @@
       },
       "*steamcommunity.com": {
         "184.50.187.66": true,
-        "104.68.46.176": true,
-        "23.210.138.105": true,
-        "23.51.204.111": true,
-        "184.30.90.143": true,
-        "184.84.187.165": true,
-        "23.76.43.59": true,
-        "23.64.7.151": false,
         "23.194.234.100": true,
-        "23.66.133.162": true,
-        "23.216.236.253": false,
-        "23.207.106.113": false,
-        "23.5.250.50": false,
-        "104.71.182.190": false,
-        "23.199.145.101": false,
-        "184.85.112.102": false,
-        "23.36.106.129": false,
-        "104.73.78.128": false
+        "23.76.43.59": true,
+        "184.84.187.165": true,
+        "23.51.204.111": true
       },
       "store.steampowered.com": {
         "23.46.197.62": true,
@@ -1915,6 +1902,13 @@
       },
       "*.fanbox.cc": {
         "210.140.139.155": true
+      },
+      "fonts.googleapis.cn": {
+        "120.253.255.34": true,
+        "220.181.174.98": true,
+        "114.250.67.34": true,
+        "203.208.41.98": true,
+        "220.181.174.162": true
       },
       "^(aistudio|.*pa.clients6|apis).google.com$": {
         "8.137.102.117": {
