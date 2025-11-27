@@ -23,6 +23,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          git config --global pull.rebase false
 
       - name: Install dependencies
         run: |
@@ -44,7 +45,8 @@ jobs:
           mkdir -p pages-repo/other-assets
           cp assets/final_config.json pages-repo/other-assets/ds-config.json
           cd pages-repo
+          git checkout main || git checkout -b main
           git add other-assets/ds-config.json || true
           git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
-          git pull origin main || echo "Pull failed"
-          git push origin main || echo "Push failed"
+          git pull origin main
+          git push origin main
