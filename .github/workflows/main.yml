@@ -13,10 +13,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          # Ensure the workflow can push back to the repo
-          persist-credentials: true
-          token: ${{ secrets.PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -36,12 +32,6 @@ jobs:
       - name: Run config converting script
         run: python src/main.py
 
-      - name: Update changes
-        run: |
-          git add assets/final_config.json || true
-          git commit -m "Update final_config.json" || echo "No changes to commit"
-          git push origin HEAD:refs/heads/main || echo "Push failed"
-
       - name: Checkout Pages repository
         uses: actions/checkout@v4
         with:
@@ -56,4 +46,5 @@ jobs:
           cd pages-repo
           git add other-assets/ds-config.json || true
           git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
-          git push origin HEAD:refs/heads/main || echo "Push failed"
+          git pull origin main || echo "Pull failed"
+          git push origin main || echo "Push failed"

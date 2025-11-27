@@ -26,9 +26,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          # Ensure the workflow can push back to the repo
-          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
