@@ -48,5 +48,5 @@ jobs:
           git checkout master || git checkout -b master
           git add other-assets/ds-config.json || true
           git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
-          git pull origin master
+          git pull origin master --no-edit
           git push origin master
