@@ -47,4 +47,4 @@ jobs:
           git add other-assets/ds-config.json || true
           git commit -m "Update ds-config.json to new location for permanent migration solution" || echo "No changes to commit"
           git pull origin main || echo "Pull failed"
-          git push origin HEAD:refs/heads/main || echo "Push failed"
+          git push origin main || echo "Push failed"
