@@ -1,120 +1,923 @@
 {
+  "plugin": {
+    "overwall": {
+      "enabled": true,
+      "targets": {
+        "*.cloudflareinsights.com": true,
+        "*.wikipedia-on-ipfs.org": true,
+        "*.google-analytics.com": true,
+        "*.oaiusercontent.com": true,
+        "*.cn-greasyfork.org": true,
+        "*.discourse-cdn.com": true,
+        "secure.gravatar.com": true,
+        "*.stackpathcdn.com": true,
+        "*.cloudflare.com": true,
+        "*.cloudfront.net": true,
+        "*.googleapis.com": true,
+        "*.greasyfork.org": true,
+        "*.huggingface.co": true,
+        "*.optimizely.com": true,
+        "rewards.bing.com": false,
+        "*.azureedge.net": true,
+        "*.onesignal.com": true,
+        "*.wikimedia.org": true,
+        "*.gravatar.com": true,
+        "*.jsdelivr.net": true,
+        "*.telegram.org": true,
+        "*.z-library.sk": true,
+        "*.zlibrary*.se": true,
+        "*.chatgpt.com": false,
+        "*.intlify.dev": true,
+        "test-ipv6.com": true,
+        "*.amazon.com": true,
+        "*.cancer.gov": true,
+        "*.docker.com": true,
+        "*.elastic.co": true,
+        "*.fastly.net": true,
+        "*.gitbook.io": true,
+        "*.github.com": true,
+        "*.nodejs.org": true,
+        "*.segment.io": true,
+        "*.shields.io": true,
+        "*.telegra.ph": true,
+        "*.vueuse.org": true,
+        "*github*.com": true,
+        "*.233v2.com": true,
+        "*.fanbox.cc": true,
+        "*.npmjs.com": true,
+        "*.pixiv.org": true,
+        "*.v2fly.org": true,
+        "*.bing.com": true,
+        "*.v2ex.com": true,
+        "telegra.ph": true
+      },
+      "pac": {
+        "pacFileUpdateUrl": "https://ghproxy.net/https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
+      }
+    }
+  },
   "server": {
-    "intercepts": {
-      "cdn.jsdelivr.net": {
-        ".*": {
-          "sni": "none"
+    "preSetIpList": {
+      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
+        "185.15.59.224": true
+      },
+      "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
+        "142.251.189.206": {
+          "desc": "自动地区官方"
         },
-        "^/.*\\.(js|css|png|jpg|jpeg|gif|json)(\\?.*)?$": {
-          "proxy": "fastly.jsdelivr.net",
-          "backup": [
-            "gcore.jsdelivr.net"
-          ]
+        "8.137.102.117": {
+          "desc": "阿里云中转"
         }
       },
-      "images.prismic.io": {
-        ".*": {
-          "sni": "imgix.net"
+      "(*google*|*google.com|*gstatic.com|*youtube.com|*youtu.be|*.ggpht.com|i.ytimg.com|*youtube-nocookie.com|*blogger.com|*android.com)": {
+        "34.49.133.3": true
+      },
+      "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions).org$": {
+        "208.80.153.224": true,
+        "185.15.58.224": true
+      },
+      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
+        "93.183.68.61": true
+      },
+      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
+        "146.75.33.140": true
+      },
+      "(*facebook.com|*fbcdn.net|business.whatsapp.com)": {
+        "157.240.22.169": true
+      },
+      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
+        "149.154.174.200": true
+      },
+      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
+        "93.183.68.61": true
+      },
+      "(*instagram.com|*instagr.am|ig.me|*.ig.me)": {
+        "157.240.27.174": true
+      },
+      "^(aistudio|.*pa.clients6|apis).google.com$": {
+        "8.137.102.117": {
+          "desc": "AI Studio相关,阿里云,解锁地区限制"
         }
       },
-      "api.fanbox.cc": {
-        ".*": {
-          "sni": "api.fanbox.cc"
+      "^.*(with)?google(apis|usercontent)?.com.*$": {
+        "142.251.189.206": {
+          "desc": "自动地区官方"
+        },
+        "8.137.102.117": {
+          "desc": "阿里云中转"
         }
       },
-      "(*pixiv.net|*fanbox.cc)": {
-        ".*": {
-          "sni": "pixivision.net"
-        }
+      "(support.github.com|resources.github.com)": {
+        "185.199.108.133": true
       },
-      "*pximg.net": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "(f-droid.org|www.f-droid.org|fdroid.org)": {
+        "37.218.243.72": true
+      },
+      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
+        "151.101.194.167": true
+      },
+      "internal-api.virginia.labs.lumalabs.ai": {
+        "34.204.141.236": true
+      },
+      "community.cloudflare.steamstatic.com": {
+        "172.64.145.151": true,
+        "104.18.42.105": true
+      },
+      "objects-origin.githubusercontent.com": {
+        "140.82.113.22": true
+      },
+      "external-content.duckduckgo.com": {
+        "20.43.160.189": true
+      },
+      "(*account*|scholar).google.com": {
+        "172.217.204.206": true
+      },
+      "(*whatsapp.com|*whatsapp.net)": {
+        "157.240.225.60": true
+      },
+      "scholar.googleusercontent.com": {
+        "142.251.190.206": true,
+        "172.217.204.206": true,
+        "172.253.122.206": true
       },
       "(*pinterest.com|*pinimg.com)": {
-        ".*": {
-          "sni": "none"
-        }
+        "151.101.0.84": true
       },
-      "upld.e-hentai.org": {
-        ".*": {
-          "sni": "none"
-        }
+      "(*z-library.sk|*z-lib.help)": {
+        "176.123.7.105": true
       },
-      "*e-hentai.org": {
-        ".*": {
-          "sni": "none"
-        }
+      "graphql.api.dailymotion.com": {
+        "34.84.14.157": true
       },
-      "*ehgt.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "images.steamusercontent.com": {
+        "104.77.160.215": true,
+        "203.69.138.224": true,
+        "23.207.202.198": true,
+        "23.216.145.139": true,
+        "184.27.185.92": true,
+        "184.30.148.77": true,
+        "218.231.251.9": true,
+        "23.212.190.51": true,
+        "23.54.155.102": true,
+        "23.56.109.164": true,
+        "41.175.223.40": true,
+        "95.100.156.90": true,
+        "95.101.24.216": true,
+        "184.24.77.66": true,
+        "2.20.68.235": true,
+        "23.2.16.208": true,
+        "23.40.43.24": true,
+        "23.46.10.70": true
       },
-      "*exhentai.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "sessions-bugsnag.docker.com": {
+        "100.29.167.200": true,
+        "54.156.140.159": null,
+        "44.221.37.199": null,
+        "52.44.227.212": null,
+        "54.156.14.194": true,
+        "54.208.73.48": true
       },
-      "*hentaiverse.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "cdn-avatars.huggingface.co": {
+        "3.167.200.113": true
       },
-      "*ehwiki.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "cdn-uploads.huggingface.co": {
+        "3.167.200.113": true
       },
-      "*ehtracker.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "checkout.steampowered.com": {
+        "23.196.173.177": true,
+        "23.195.152.91": true,
+        "23.35.101.126": true,
+        "23.54.153.177": true,
+        "23.58.97.230": true
       },
-      "*gelbooru.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
+      "disney.*.edge.bamgrid.com": {
+        "2001:67c:2960:6464::36e6:4744": true
       },
-      "*sukebei.nyaa.si": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*nyaa.si": {
-        ".*": {
-          "sni": "ddos-guard.net"
-        }
-      },
-      "*pornhub.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "(*bbci.co.uk|*bbc.co.uk)": {
+        "23.77.21.232": true
       },
       "(*xvideos.com|*xnxx.com)": {
-        ".*": {
-          "sni": "none"
-        }
+        "185.88.181.3": true
       },
-      "*xhamster.com": {
-        ".*": {
-          "sni": "zh.xhamster.com"
-        }
+      "(*nytimes.com|*nyt.com)": {
+        "146.75.117.164": true
       },
-      "*xhamster42.desi": {
-        ".*": {
-          "sni": "zh.xhamster42.desi"
-        }
+      "(*pixiv.net|*fanbox.cc)": {
+        "210.140.139.155": true
       },
-      "*rutube.ru": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
+      "*patreonusercontent.com": {
+        "104.18.70.106": true
+      },
+      "*zws1*.web.telegram.org": {
+        "149.154.174.200": true
+      },
+      "*zws2*.web.telegram.org": {
+        "93.183.68.61": true
+      },
+      "*zws3*.web.telegram.org": {
+        "149.154.174.200": true
+      },
+      "*zws4*.web.telegram.org": {
+        "93.183.68.61": true
+      },
+      "*.youtube-nocookie.com": {
+        "8.137.102.117": true
+      },
+      "*githubusercontent.com": {
+        "151.101.128.133": true,
+        "151.101.192.133": true,
+        "185.199.108.133": true,
+        "185.199.109.133": true,
+        "185.199.110.133": true,
+        "185.199.111.133": true,
+        "199.232.208.133": true,
+        "199.232.212.133": true,
+        "199.232.232.133": true,
+        "146.75.112.133": true,
+        "151.101.64.133": true,
+        "151.101.76.133": true,
+        "146.75.20.133": true,
+        "167.82.20.133": true,
+        "167.82.84.133": true,
+        "167.82.88.133": true,
+        "167.82.0.133": true
+      },
+      "^.*\\.web.telegram.org$": {
+        "149.154.170.200": true
+      },
+      "cdn.steamcommunity.com": {
+        "23.221.227.5": true
+      },
+      "discuss.huggingface.co": {
+        "3.167.200.113": true
+      },
+      "store.steampowered.com": {
+        "23.202.181.219": true,
+        "104.99.49.179": true,
+        "23.205.36.100": true,
+        "23.206.181.48": true,
+        "23.35.101.126": true,
+        "23.218.33.47": true,
+        "23.219.73.99": true,
+        "23.46.197.62": true
+      },
+      "account-api.proton.me": {
+        "185.70.42.20": true
+      },
+      "business.whatsapp.com": {
+        "157.240.22.169": true
+      },
+      "cdn1.cdn-telegram.org": {
+        "34.111.15.3": true
+      },
+      "cdn4.cdn-telegram.org": {
+        "34.111.35.152": true
+      },
+      "cdn5.cdn-telegram.org": {
+        "34.111.108.175": true
+      },
+      "copilot.microsoft.com": {
+        "2001:67c:2960:6464::cc4f:c5ed": true
+      },
+      "irc-ws.chat.twitch.tv": {
+        "3.167.200.113": true
+      },
+      "status.huggingface.co": {
+        "3.167.200.113": true
+      },
+      "*archiveofourown.org": {
+        "104.20.8.2": true
+      },
+      "account.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "api.steampowered.com": {
+        "104.71.182.190": true,
+        "184.85.112.102": true,
+        "23.199.145.101": true,
+        "23.207.106.113": true,
+        "23.216.236.253": true,
+        "104.68.46.176": true,
+        "23.36.106.129": true,
+        "23.5.250.50": true
+      },
+      "community.github.com": {
+        "140.82.114.17": true
+      },
+      "upload.wikimedia.org": {
+        "208.80.153.240": true,
+        "208.80.154.240": true,
+        "185.15.58.240": true
+      },
+      "*.cn-greasyfork.org": {
+        "96.126.98.220": true,
+        "50.116.4.196": true
+      },
+      "*steamcommunity.com": {
+        "184.84.187.165": true,
+        "23.194.234.100": true,
+        "184.50.187.66": true,
+        "23.51.204.111": true,
+        "23.76.43.59": true
+      },
+      "fonts.googleapis.cn": {
+        "220.181.174.162": true,
+        "120.253.255.34": true,
+        "220.181.174.98": true,
+        "114.250.67.34": true,
+        "203.208.41.98": true
+      },
+      "identity.flickr.com": {
+        "52.6.22.65": true
+      },
+      "services.github.com": {
+        "140.82.113.18": true
+      },
+      "*.cdninstagram.com": {
+        "57.144.152.192": true,
+        "57.144.216.192": true,
+        "57.144.220.192": true
+      },
+      "*.media.tumblr.com": {
+        "192.0.77.3": true
+      },
+      "*.web.telegram.org": {
+        "149.154.170.200": true
+      },
+      "*onedrive.live.com": {
+        "13.107.42.13": true
+      },
+      "calendar.proton.me": {
+        "185.70.42.39": true
+      },
+      "embed.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "live2.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "nvapi.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "passport.twitch.tv": {
+        "3.167.200.113": true
+      },
+      "(ok.ru|www.ok.ru)": {
+        "5.61.23.11": true
+      },
+      "*.steamstatic.com": {
+        "151.101.111.52": true,
+        "151.101.195.52": true,
+        "146.75.115.52": true,
+        "151.101.67.52": true,
+        "151.101.79.52": true,
+        "151.101.91.52": true,
+        "146.75.47.52": true,
+        "146.75.51.52": true,
+        "151.101.3.52": true
+      },
+      "*redditstatic.com": {
+        "146.75.33.140": true
+      },
+      "*tamtam-lp*.ok.ru": {
+        "217.20.158.136": true
+      },
+      "account.proton.me": {
+        "185.70.42.36": true
+      },
+      "consent.yahoo.com": {
+        "consent.yahoo.com": true
+      },
+      "forum.f-droid.org": {
+        "37.218.242.53": true
       },
       "gemini.google.com": {
+        "47.102.115.14": true
+      },
+      "images.prismic.io": {
+        "151.101.78.208": true
+      },
+      "live.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "upld.e-hentai.org": {
+        "89.149.221.236": true
+      },
+      "wktk.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "*.greasyfork.org": {
+        "96.126.98.220": true,
+        "50.116.4.196": true
+      },
+      "*.huggingface.co": {
+        "108.159.120.127": true,
+        "108.158.147.92": true,
+        "18.238.238.129": true,
+        "18.164.154.63": true,
+        "18.164.154.67": true,
+        "3.167.200.113": true,
+        "54.192.18.102": true,
+        "18.155.216.6": true,
+        "18.172.21.89": true,
+        "52.85.216.90": true,
+        "99.84.188.26": true,
+        "13.33.88.77": true,
+        "13.35.58.66": true,
+        "18.64.207.2": true,
+        "65.9.141.54": true,
+        "18.64.8.21": true,
+        "3.169.5.41": true,
+        "99.84.9.90": true
+      },
+      "*dailymotion.com": {
+        "195.8.215.140": true
+      },
+      "*hentaiverse.org": {
+        "178.162.151.56": true
+      },
+      "*redditmedia.com": {
+        "146.75.33.140": true
+      },
+      "*sukebei.nyaa.si": {
+        "198.251.89.38": true
+      },
+      "*xhamster42.desi": {
+        "104.17.35.109": true
+      },
+      "assets.twitch.tv": {
+        "3.167.200.113": true
+      },
+      "cdn.jsdelivr.net": {
+        "104.16.89.20": true
+      },
+      "hello.vrchat.com": {
+        "198.185.159.145": true
+      },
+      "open.spotify.com": {
+        "2001:67c:2960:6464::9765:c32a": true
+      },
+      "panels.twitch.tv": {
+        "3.167.200.113": true
+      },
+      "tamtam-lp*.ok.ru": {
+        "217.20.158.136": true
+      },
+      "*.instagram.com": {
+        "102.132.104.174": true,
+        "157.240.210.174": true,
+        "157.240.229.174": true,
+        "157.240.252.174": true,
+        "102.132.97.174": true,
+        "163.70.159.174": true,
+        "57.144.144.34": true,
+        "57.144.188.34": true,
+        "57.144.216.34": true,
+        "31.13.85.174": true,
+        "31.13.94.174": true
+      },
+      "*api.mega.co.nz": {
+        "66.203.125.15": true
+      },
+      "*discordapp.com": {
+        "162.159.130.233": true
+      },
+      "*discordapp.net": {
+        "162.159.130.232": true
+      },
+      "*disneyplus.com": {
+        "2001:67c:2960:6464::17c5:ea7c": true
+      },
+      "*duckduckgo.com": {
+        "20.43.161.105": true
+      },
+      "*greasyfork.org": {
+        "96.126.98.220": true
+      },
+      "*huggingface.co": {
+        "3.167.200.113": true
+      },
+      "*pixeldrain.com": {
+        "103.107.198.191": true
+      },
+      "docs.github.com": {
+        "185.199.110.154": true
+      },
+      "drive.proton.me": {
+        "185.70.42.40": true
+      },
+      "gist.github.com": {
+        "20.200.245.247": true,
+        "20.205.243.166": false,
+        "20.27.177.113": true,
+        "140.82.116.3": true,
+        "140.82.116.4": true,
+        "4.237.22.38": true
+      },
+      "sp.nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "*apkmirror.com": {
+        "104.17.67.215": true
+      },
+      "*ehtracker.org": {
+        "5.79.104.115": true
+      },
+      "*instagram.com": {
+        "157.240.236.174": true,
+        "157.240.27.174": true
+      },
+      "*pinterest.com": {
+        "151.101.0.84": true
+      },
+      "*startpage.com": {
+        "67.63.58.139": true
+      },
+      "_google_backup": {
+        "142.251.189.206": true,
+        "142.251.190.206": true,
+        "172.217.204.206": true,
+        "172.253.122.206": true,
+        "194.87.31.227": true,
+        "47.102.115.14": true,
+        "8.137.102.117": {
+          "desc": "阿里云中转"
+        },
+        "136.124.0.28": true,
+        "136.124.0.29": true,
+        "38.180.33.93": true,
+        "34.49.133.3": true
+      },
+      "a5.behance.net": {
+        "13.35.185.106": true
+      },
+      "api.github.com": {
+        "20.205.243.168": true
+      },
+      "ask.vrchat.com": {
+        "216.66.8.43": true
+      },
+      "greasyfork.org": {
+        "96.126.98.220": true,
+        "50.116.4.196": true
+      },
+      "guce.yahoo.com": {
+        "guce.yahoo.com": true
+      },
+      "hub.docker.com": {
+        "100.29.167.200": null,
+        "54.156.140.159": null,
+        "44.221.37.199": null,
+        "52.44.227.212": null,
+        "54.156.14.194": null,
+        "52.4.183.149": true,
+        "54.208.73.48": null
+      },
+      "mail.proton.me": {
+        "185.70.42.37": true
+      },
+      "pass.proton.me": {
+        "185.70.42.63": true
+      },
+      "www.ecosia.org": {
+        "2001:67c:2960:6464::ac40:9647": true
+      },
+      "www.github.com": {
+        "20.200.245.247": true,
+        "20.205.243.166": true,
+        "20.27.177.113": true
+      },
+      "*.gstatic.com": {
+        "8.137.102.117": true
+      },
+      "*.spotify.com": {
+        "2001:67c:2960:6464::23ba:e018": true
+      },
+      "*.youtube.com": {
+        "8.137.102.117": true
+      },
+      "*amazon.co.jp": {
+        "13.35.219.115": true
+      },
+      "*character.ai": {
+        "104.18.223.226": true
+      },
+      "*e-hentai.org": {
+        "172.66.132.196": true
+      },
+      "*exhentai.org": {
+        "178.175.132.22": true
+      },
+      "*facebook.com": {
+        "157.240.22.169": true
+      },
+      "*gamer.com.tw": {
+        "104.16.223.104": true
+      },
+      "*gelbooru.com": {
+        "108.181.143.72": true
+      },
+      "*gravatar.com": {
+        "192.0.80.240": true
+      },
+      "*nicovideo.jp": {
+        "3.167.200.113": true
+      },
+      "*telegram.org": {
+        "93.183.68.61": true
+      },
+      "*whatsapp.com": {
+        "157.240.225.60": true
+      },
+      "*whatsapp.net": {
+        "157.240.225.60": true
+      },
+      "*xhamster.com": {
+        "104.17.35.109": true
+      },
+      "*z-library.sk": {
+        "176.123.7.105": true
+      },
+      "api.fanbox.cc": {
+        "172.64.146.116": true
+      },
+      "gql.twitch.tv": {
+        "151.101.194.167": true
+      },
+      "*archive.org": {
+        "207.241.237.2": true
+      },
+      "*behance.net": {
+        "2001:67c:2960:6464::9765:41c5": true
+      },
+      "*bilibili.tv": {
+        "2001:67c:2960:6464::6797:9785": true
+      },
+      "*discord.com": {
+        "162.159.136.232": true
+      },
+      "*dropbox.com": {
+        "162.125.248.18": true
+      },
+      "*f-droid.org": {
+        "37.218.243.72": true
+      },
+      "*lumalabs.ai": {
+        "76.76.21.21": true
+      },
+      "*netflix.com": {
+        "2001:67c:2960:6464::2cf2:0da1": true
+      },
+      "*nytimes.com": {
+        "146.75.117.164": true
+      },
+      "*patreon.com": {
+        "104.16.25.14": true
+      },
+      "*pornhub.com": {
+        "66.254.114.40": true
+      },
+      "*telegram.me": {
+        "93.183.68.61": true
+      },
+      "*thetvdb.com": {
+        "13.35.222.88": true,
+        "13.3.222.88": true
+      },
+      "*xvideos.com": {
+        "185.88.181.3": true
+      },
+      "_*.yahoo.com": {
+        "2001:67c:2960:6464::b4de:6a0b": true
+      },
+      "*.fanbox.cc": {
+        "210.140.139.155": true
+      },
+      "*.ggpht.com": {
+        "8.137.102.117": true
+      },
+      "*bbci.co.uk": {
+        "23.77.21.232": true
+      },
+      "*discord.gg": {
+        "162.159.130.234": true
+      },
+      "*ehwiki.org": {
+        "178.162.151.58": true
+      },
+      "*flickr.com": {
+        "13.33.142.102": true
+      },
+      "*github.com": {
+        "20.27.177.113": true
+      },
+      "*instagr.am": {
+        "157.240.236.174": true,
+        "157.240.27.174": true
+      },
+      "*pinimg.com": {
+        "151.101.0.84": true
+      },
+      "*reddit.com": {
+        "146.75.33.140": true
+      },
+      "*rumble.com": {
+        "205.220.231.24": true
+      },
+      "*telesco.pe": {
+        "93.183.68.61": true
+      },
+      "*tumblr.com": {
+        "192.0.77.40": true
+      },
+      "*vercel.app": {
+        "64.29.17.193": true
+      },
+      "*z-lib.help": {
+        "176.123.7.105": true
+      },
+      "_s.yimg.com": {
+        "2001:67c:2960:6464::b4de:6a0b": true
+      },
+      "a.pixiv.org": {
+        "210.140.139.182": true,
+        "210.140.139.183": true,
+        "210.140.139.184": true
+      },
+      "i.pximg.net": {
+        "210.140.139.132": true,
+        "210.140.139.133": true,
+        "210.140.139.134": true,
+        "210.140.139.135": true,
+        "210.140.139.137": true,
+        "203.137.29.47": true,
+        "203.137.29.48": true,
+        "203.137.29.49": true
+      },
+      "i.ytimg.com": {
+        "8.137.102.117": true
+      },
+      "m.twitch.tv": {
+        "151.101.194.167": true
+      },
+      "*.youtu.be": {
+        "8.137.102.117": true
+      },
+      "*233v2.com": {
+        "13.52.115.166": true,
+        "52.74.232.59": true
+      },
+      "*bbc.co.uk": {
+        "23.77.21.232": true
+      },
+      "*claude.ai": {
+        "2001:67c:2960:6464::a04f:680a": true
+      },
+      "*fanbox.cc": {
+        "210.140.139.155": true
+      },
+      "*fbcdn.net": {
+        "157.240.22.169": true
+      },
+      "*imgur.com": {
+        "199.232.196.193": true
+      },
+      "*pixiv.net": {
+        "210.140.139.155": true
+      },
+      "*proton.me": {
+        "185.70.42.45": true
+      },
+      "*pximg.net": {
+        "210.140.139.133": true
+      },
+      "*quora.com": {
+        "162.159.153.247": true,
+        "162.159.152.17": true
+      },
+      "*rutube.ru": {
+        "109.238.90.239": true
+      },
+      "*twitch.tv": {
+        "151.101.194.167": true
+      },
+      "*vimeo.com": {
+        "162.159.138.60": true
+      },
+      "fdroid.org": {
+        "37.218.243.72": true
+      },
+      "github.com": {
+        "20.200.245.247": true,
+        "20.205.243.166": true,
+        "20.201.28.151": false,
+        "20.26.156.215": false,
+        "20.27.177.113": true,
+        "140.82.113.3": false,
+        "140.82.114.4": false,
+        "140.82.116.3": false,
+        "140.82.116.4": false,
+        "140.82.121.3": false,
+        "140.82.121.4": false,
+        "20.87.245.0": false,
+        "4.237.22.38": false
+      },
+      "github.dev": {
+        "20.99.227.183": true,
+        "52.224.38.193": true,
+        "20.43.185.14": true,
+        "51.137.3.17": true
+      },
+      "telegra.ph": {
+        "149.154.161.145": true,
+        "95.161.64.100": true,
+        "95.161.64.99": true
+      },
+      "*ehgt.org": {
+        "109.236.85.28": true
+      },
+      "*etsy.com": {
+        "151.101.193.224": true
+      },
+      "*eyny.com": {
+        "172.241.24.66": true
+      },
+      "*v2ex.com": {
+        "172.66.137.6": true
+      },
+      "*xnxx.com": {
+        "185.88.181.3": true
+      },
+      "www.ok.ru": {
+        "5.61.23.11": true
+      },
+      "*bbc.com": {
+        "146.75.36.81": true
+      },
+      "*itch.io": {
+        "142.171.75.212": true
+      },
+      "*mega.io": {
+        "66.203.127.11": true
+      },
+      "*mega.nz": {
+        "31.216.144.5": true
+      },
+      "*nyaa.si": {
+        "186.2.163.20": true
+      },
+      "*nyt.com": {
+        "146.75.117.164": true
+      },
+      "*okx.com": {
+        "8.212.101.92": true
+      },
+      "*redd.it": {
+        "146.75.33.140": true
+      },
+      "*.ig.me": {
+        "157.240.236.174": true,
+        "157.240.27.174": true
+      },
+      "*rfi.fr": {
+        "118.214.247.61": true
+      },
+      "*tg.dev": {
+        "93.183.68.61": true
+      },
+      "*w.wiki": {
+        "208.80.153.224": true,
+        "185.15.58.224": true
+      },
+      "itch.io": {
+        "142.171.75.212": true
+      },
+      "*.t.me": {
+        "93.183.68.61": true
+      },
+      "*ok.ru": {
+        "5.61.23.30": true
+      },
+      "ig.me": {
+        "157.240.236.174": true,
+        "157.240.27.174": true
+      },
+      "ok.ru": {
+        "5.61.23.11": true
+      },
+      "t.me": {
+        "93.183.68.61": true
+      }
+    },
+    "intercepts": {
+      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
         ".*": {
           "sni": "none"
+        }
+      },
+      "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
+        ".*": {
+          "sni": "www.google.cn"
         }
       },
       "(*google*|*google.com|*gstatic.com|*youtube.com|*youtu.be|*.ggpht.com|i.ytimg.com|*youtube-nocookie.com|*blogger.com|*android.com)": {
@@ -122,44 +925,30 @@
           "sni": "g.cn"
         }
       },
-      "consent.yahoo.com": {
+      "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions|wikibooks).org$": {
         ".*": {
-          "sni": "consent.yahoo.com"
+          "sni": "mediawiki.org"
         }
       },
-      "guce.yahoo.com": {
+      "^(?!.*(translate-pa).google(?:apis|usercontent)?.com).*google(?:apis|usercontent)?.com$": {
         ".*": {
-          "sni": "guce.yahoo.com"
+          "desc": "部分需要走其它代理的服务",
+          "sni": "www.google.cn"
         }
       },
-      "*.buy.yahoo.com": {
+      "^.*(cdn-telegram.org|web.telegram.org|telegram.org|telegram.me|tg.dev|t.me|telesco.pe)$": {
         ".*": {
-          "sni": "buy.yahoo.com"
+          "sni": "www.baidu.com"
         }
       },
-      "s.yimg.com": {
+      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
         ".*": {
           "sni": "none"
         }
       },
-      "external-content.duckduckgo.com": {
+      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
         ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*duckduckgo.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "www.ecosia.org": {
-        ".*": {
-          "sni": "www.ecosia.org"
-        }
-      },
-      "*startpage.com": {
-        ".*": {
-          "sni": "www.baidu.com"
+          "sni": "none"
         }
       },
       "(*facebook.com|*fbcdn.net|business.whatsapp.com)": {
@@ -167,32 +956,23 @@
           "sni": "none"
         }
       },
-      "(*whatsapp.com|*whatsapp.net)": {
+      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
         ".*": {
           "sni": "none"
+        }
+      },
+      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "^(?!assets|gql|vod-secure|panels)\\.twitch\\.tv$": {
+        ".*": {
+          "desc": "聊天需要 wss://irc-ws.chat.twitch.tv/",
+          "sni": "cloudfront.net"
         }
       },
       "(*instagram.com|*instagr.am|ig.me|*.ig.me)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*.media.tumblr.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*tumblr.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "api.github.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "docs.github.com": {
         ".*": {
           "sni": "none"
         }
@@ -202,57 +982,12 @@
           "sni": "none"
         }
       },
-      "services.github.com": {
+      "(f-droid.org|www.f-droid.org|fdroid.org)": {
         ".*": {
           "sni": "none"
         }
       },
-      "community.github.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*github.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "objects-origin.githubusercontent.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*githubusercontent.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*huggingface.co": {
-        ".*": {
-          "sni": "huggingface.cn"
-        }
-      },
-      "hub.docker.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*vercel.app": {
-        ".*": {
-          "sni": "vercel.com"
-        }
-      },
-      "*claude.ai": {
-        ".*": {
-          "sni": "claude.ai"
-        }
-      },
-      "copilot.microsoft.com": {
-        ".*": {
-          "sni": "www.azureedge.net"
-        }
-      },
-      "*character.ai": {
+      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
         ".*": {
           "sni": "none"
         }
@@ -262,22 +997,40 @@
           "sni": "www.baidu.com"
         }
       },
-      "*lumalabs.ai": {
+      "objects-origin.githubusercontent.com": {
         ".*": {
-          "sni": "vercel.com"
+          "sni": "www.baidu.com"
         }
       },
-      "upload.wikimedia.org": {
+      "^(?!.*cloudflare).*steamstatic.com$": {
+        ".*": {
+          "desc": "steam社区数据不能也不需调整sni,直接直连",
+          "sni": "baidu.com"
+        }
+      },
+      "external-content.duckduckgo.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "_^(?<pre>.*).googlevideo1.com$": {
+        "*": {
+          "ipv6only": true,
+          "proxy": "${pre}.gvt1.com",
+          "sni": "g.cn"
+        }
+      },
+      "fonts.(googleapis|gstatic).com": {
+        ".*": {
+          "proxy": "fonts.googleapis.cn"
+        }
+      },
+      "(*whatsapp.com|*whatsapp.net)": {
         ".*": {
           "sni": "none"
         }
       },
-      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*archiveofourown.org": {
+      "(*pinterest.com|*pinimg.com)": {
         ".*": {
           "sni": "none"
         }
@@ -287,28 +1040,100 @@
           "sni": "none"
         }
       },
-      "*archive.org": {
+      "graphql.api.dailymotion.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*greasyfork.org": {
+      "images.steamusercontent.com": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "baidu.com"
         }
       },
-      "*itch.io": {
+      "_disney.*.edge.bamgrid.com": {
         ".*": {
-          "sni": "none"
+          "sni": "disney.images.edge.bamgrid.com"
         }
       },
-      "*steamcommunity.com": {
-        ".*": {
-          "sni": "none"
+      "opengraph.githubassets.com": {
+        "^/(([^/]+/){3}issues/\\d+)?(\\?.*)?$": {
+          "cacheDays": 365
         },
-        "^(?!/discussions).*$": {
-          "sni": "www.baidu.com",
-          "desc": "讨论区锁区,考虑不拦截丢给彩蛋"
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "disney.*.edge.bamgrid.com": {
+        ".*": {
+          "sni": "disney.images.edge.bamgrid.com"
+        }
+      },
+      "(*bbci.co.uk|*bbc.co.uk)": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "(*xvideos.com|*xnxx.com)": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "(*nytimes.com|*nyt.com)": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "(*pixiv.net|*fanbox.cc)": {
+        ".*": {
+          "sni": "pixivision.net"
+        }
+      },
+      "*.githubusercontent.com": {
+        ".*": {
+          "requestReplace": {
+            "headers": {
+              "accept-language": "en-US,en;q=0.8"
+            }
+          },
+          "sni": "baidu.com"
+        }
+      },
+      "*patreonusercontent.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "github.githubassets.com": {
+        "^(/[^/]+)*/[^./]+\\.(svg|png|gif|jpg|jpeg|ico|js|css)(\\?.*)?$": {
+          "cacheDays": 365,
+          "desc": "图片、JS文件、CSS文件，缓存1年"
+        },
+        ".*.backup": {
+          "responseReplace": {
+            "headers": {
+              "cross-origin-resource-policy": "cross-origin",
+              "access-control-allow-origin": "*",
+              "set-cookie": "[remove]"
+            }
+          },
+          "proxy": "github.com",
+          "desc": "github.com域名下，该请求已经不存在，此配置暂时先备份掉。",
+          "sni": "baidu.com"
+        }
+      },
+      "*.youtube-nocookie.com": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*githubusercontent.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "_copilot.microsoft.com": {
+        ".*": {
+          "sni": "www.azureedge.net"
         }
       },
       "store.steampowered.com": {
@@ -316,62 +1141,12 @@
           "sni": "none"
         }
       },
-      "hello.vrchat.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "ask.vrchat.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "account.proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
       "account-api.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "mail.proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "calendar.proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "drive.proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "pass.proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*proton.me": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "tamtam-lp*.ok.ru": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "(ok.ru|www.ok.ru)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*ok.ru": {
+      "business.whatsapp.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
@@ -391,14 +1166,103 @@
           "sni": "none"
         }
       },
-      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
+      "copilot.microsoft.com": {
+        ".*": {
+          "sni": "www.azureedge.net"
+        }
+      },
+      "*archiveofourown.org": {
         ".*": {
           "sni": "none"
         }
       },
-      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
+      "collector.github.com": {
+        "/github/collect": {
+          "success": true,
+          "status": 204,
+          "desc": "采集数据，快速成功"
+        },
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "community.github.com": {
         ".*": {
           "sni": "none"
+        }
+      },
+      "upload.wikimedia.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*.cn-greasyfork.org": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*steamcommunity.com": {
+        "^(?!/discussions).*$": {
+          "desc": "讨论区锁区,考虑不拦截丢给彩蛋",
+          "sni": "www.baidu.com"
+        },
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "download.docker.com": {
+        ".*": {
+          "sni": "download.docker.com"
+        }
+      },
+      "fastly.jsdelivr.net": {
+        "^.*\\?DS_DOWNLOAD$": {
+          "responseReplace": {
+            "doDownload": true
+          },
+          "requestReplace": {
+            "doDownload": true
+          }
+        }
+      },
+      "identity.flickr.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "jsdelivr.pai233.top": {
+        "^.*\\?DS_DOWNLOAD$": {
+          "responseReplace": {
+            "doDownload": true
+          },
+          "requestReplace": {
+            "doDownload": true
+          }
+        }
+      },
+      "services.github.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*.cdninstagram.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
+      "*.media.tumblr.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*.nikke-global.com": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*.steampowered.com": {
+        ".*": {
+          "sni": "www.baidu.com"
         }
       },
       "*.web.telegram.org": {
@@ -406,19 +1270,166 @@
           "sni": "none"
         }
       },
-      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
+      "*onedrive.live.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "calendar.proton.me": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "(ok.ru|www.ok.ru)": {
         ".*": {
           "sni": "none"
         }
       },
-      "*discord.com": {
+      "*.steamserver.net": {
+        ".*": {
+          "desc": "steam登录不稳定？无法复现先这么写",
+          "sni": "www.baidu.com"
+        }
+      },
+      "*redditstatic.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "_open.spotify.com": {
+        ".*": {
+          "sni": "open.spotify.com"
+        }
+      },
+      "account.proton.me": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "consent.yahoo.com": {
+        ".*": {
+          "sni": "consent.yahoo.com"
+        }
+      },
+      "forum.f-droid.org": {
         ".*": {
           "sni": "none"
         }
       },
-      "*discord.gg": {
+      "gemini.google.com": {
         ".*": {
           "sni": "none"
+        }
+      },
+      "images.prismic.io": {
+        ".*": {
+          "sni": "imgix.net"
+        }
+      },
+      "jsd.proxy.aks.moe": {
+        "^.*\\?DS_DOWNLOAD$": {
+          "responseReplace": {
+            "doDownload": true
+          },
+          "requestReplace": {
+            "doDownload": true
+          }
+        }
+      },
+      "upld.e-hentai.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*.greasyfork.org": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*.huggingface.co": {
+        ".*": {
+          "sni": "huggingface.cn"
+        }
+      },
+      "*dailymotion.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*hentaiverse.org": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*redditmedia.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*sukebei.nyaa.si": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*xhamster42.desi": {
+        ".*": {
+          "sni": "zh.xhamster42.desi"
+        }
+      },
+      "_*disneyplus.com": {
+        ".*": {
+          "sni": "disneyplus.com"
+        }
+      },
+      "cdn.jsdelivr.net": {
+        "^/.*\\.(js|css|png|jpg|jpeg|gif|json)(\\?.*)?$": {
+          "backup": [
+            "gcore.jsdelivr.net"
+          ],
+          "proxy": "fastly.jsdelivr.net"
+        },
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "hello.vrchat.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "login.docker.com": {
+        ".*": {
+          "sni": "login.docker.com"
+        }
+      },
+      "open.spotify.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "tamtam-lp*.ok.ru": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*.ads-pixiv.net": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*.buy.yahoo.com": {
+        ".*": {
+          "sni": "buy.yahoo.com"
+        }
+      },
+      "*.instagram.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
+      "*api.mega.co.nz": {
+        ".*": {
+          "sni": "www.baidu.com"
         }
       },
       "*discordapp.com": {
@@ -431,94 +1442,24 @@
           "sni": "none"
         }
       },
-      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*netflix.com": {
-        ".*": {
-          "sni": "netflix.com"
-        }
-      },
       "*disneyplus.com": {
         ".*": {
           "sni": "disneyplus.com"
         }
       },
-      "disney.*.edge.bamgrid.com": {
-        ".*": {
-          "sni": "disney.images.edge.bamgrid.com"
-        }
-      },
-      "*gamer.com.tw": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*bilibili.tv": {
-        ".*": {
-          "sni": "bilibili.tv"
-        }
-      },
-      "open.spotify.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*spotify.com": {
-        ".*": {
-          "sni": "spotify.com"
-        }
-      },
-      "*rumble.com": {
+      "*duckduckgo.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*quora.com": {
-        ".*": {
-          "sni": "fs.quoracdn.net"
-        }
-      },
-      "*v2ex.com": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*eyny.com": {
+      "*greasyfork.org": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*onedrive.live.com": {
+      "*huggingface.co": {
         ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*mega.io": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*mega.nz": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*api.mega.co.nz": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*dropbox.com": {
-        ".*": {
-          "sni": "www.baidu.com"
+          "sni": "huggingface.cn"
         }
       },
       "*pixeldrain.com": {
@@ -526,54 +1467,39 @@
           "sni": "pixeldra.in"
         }
       },
-      "*amazon.co.jp": {
+      "_a5.behance.net": {
         ".*": {
-          "sni": "amazon.com"
+          "sni": "a5.behance.net"
         }
       },
-      "*etsy.com": {
+      "_www.ecosia.org": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "www.ecosia.org"
         }
       },
-      "*bbc.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "(*bbci.co.uk|*bbc.co.uk)": {
+      "docs.github.com": {
         ".*": {
           "sni": "none"
         }
       },
-      "(*nytimes.com|*nyt.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*rfi.fr": {
+      "drive.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "graphql.api.dailymotion.com": {
+      "gist.github.com": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "baidu.com"
         }
       },
-      "*dailymotion.com": {
-        ".*": {
-          "sni": "www.baidu.com"
+      "www.gstatic.com": {
+        "/recaptcha/.*": {
+          "proxy": "www.recaptcha.net"
         }
       },
-      "forum.f-droid.org": {
+      "*.gravatar.com": {
         ".*": {
-          "sni": "none"
-        }
-      },
-      "(f-droid.org|www.f-droid.org|fdroid.org)": {
-        ".*": {
-          "sni": "none"
+          "sni": "baidu.com"
         }
       },
       "*apkmirror.com": {
@@ -581,7 +1507,22 @@
           "sni": "none"
         }
       },
-      "*gravatar.com": {
+      "*ehtracker.org": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*instagram.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*pinterest.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*startpage.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
@@ -591,130 +1532,22 @@
           "sni": "a5.behance.net"
         }
       },
-      "*behance.net": {
+      "api.github.com": {
         ".*": {
-          "sni": "behance.net"
+          "sni": "baidu.com"
         }
       },
-      "*okx.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*patreon.com": {
+      "ask.vrchat.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*patreonusercontent.com": {
+      "guce.yahoo.com": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "guce.yahoo.com"
         }
       },
-      "*vimeo.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "identity.flickr.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*flickr.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*imgur.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*thetvdb.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "_www.ecosia.org": {
-        ".*": {
-          "sni": "www.ecosia.org"
-        }
-      },
-      "_copilot.microsoft.com": {
-        ".*": {
-          "sni": "www.azureedge.net"
-        }
-      },
-      "_*claude.ai": {
-        ".*": {
-          "sni": "claude.ai"
-        }
-      },
-      "_^(?<pre>.*).googlevideo1.com$": {
-        "*": {
-          "proxy": "${pre}.gvt1.com",
-          "sni": "g.cn",
-          "ipv6only": true
-        }
-      },
-      "*_netflix.com": {
-        ".*": {
-          "sni": "netflix.com"
-        }
-      },
-      "_*disneyplus.com": {
-        ".*": {
-          "sni": "disneyplus.com"
-        }
-      },
-      "_disney.*.edge.bamgrid.com": {
-        ".*": {
-          "sni": "disney.images.edge.bamgrid.com"
-        }
-      },
-      "_*bilibili.tv": {
-        ".*": {
-          "sni": "bilibili.tv"
-        }
-      },
-      "_open.spotify.com": {
-        ".*": {
-          "sni": "open.spotify.com"
-        }
-      },
-      "_*spotify.com": {
-        ".*": {
-          "sni": "spotify.com"
-        }
-      },
-      "_a5.behance.net": {
-        ".*": {
-          "sni": "a5.behance.net"
-        }
-      },
-      "1.1.1.1": {
-        ".*": {
-          "redirect": "one.one.one.one"
-        }
-      },
-      "telegra.ph": {
-        "^/$": {
-          "sni": "none",
-          "desc": "资源404,但不影响文字加载,无法加载相关资源丢给彩蛋"
-        }
-      },
-      "itch.io": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "*233v2.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*.yahoo.com": {
+      "hub.docker.com": {
         ".*": {
           "sni": "none"
         }
@@ -724,32 +1557,62 @@
           "sni": "huggingface.cn"
         }
       },
-      "*pixiv.net": {
-        ".*": {
-          "sni": "pixivision.net"
-        }
-      },
-      "*fanbox.cc": {
-        ".*": {
-          "sni": "pixivision.net"
-        }
-      },
-      "*pinterest.com": {
+      "mail.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*pinimg.com": {
+      "pass.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*xvideos.com": {
+      "www.docker.com": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "www.docker.com"
         }
       },
-      "*xnxx.com": {
+      "www.ecosia.org": {
+        ".*": {
+          "sni": "www.ecosia.org"
+        }
+      },
+      "*.intercom.io": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
+      "*.windows.net": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*.youtube.com": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*_netflix.com": {
+        ".*": {
+          "sni": "netflix.com"
+        }
+      },
+      "*amazon.co.jp": {
+        ".*": {
+          "sni": "amazon.com"
+        }
+      },
+      "*character.ai": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*e-hentai.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*exhentai.org": {
         ".*": {
           "sni": "www.baidu.com"
         }
@@ -759,12 +1622,17 @@
           "sni": "www.baidu.com"
         }
       },
-      "*fbcdn.net": {
+      "*gamer.com.tw": {
         ".*": {
-          "sni": "www.baidu.com"
+          "sni": "none"
         }
       },
-      "business.whatsapp.com": {
+      "*gelbooru.com": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*gravatar.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
@@ -779,90 +1647,89 @@
           "sni": "www.baidu.com"
         }
       },
-      "*instagram.com": {
+      "*xhamster.com": {
+        ".*": {
+          "sni": "zh.xhamster.com"
+        }
+      },
+      "*z-library.sk": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*instagr.am": {
+      "_*bilibili.tv": {
+        ".*": {
+          "sni": "bilibili.tv"
+        }
+      },
+      "_*spotify.com": {
+        ".*": {
+          "sni": "spotify.com"
+        }
+      },
+      "api.fanbox.cc": {
+        ".*": {
+          "sni": "api.fanbox.cc"
+        }
+      },
+      "raw.incept.pw": {
+        "^.*\\?DS_DOWNLOAD$": {
+          "responseReplace": {
+            "doDownload": true
+          },
+          "requestReplace": {
+            "doDownload": true
+          }
+        }
+      },
+      "*.docker.com": {
+        ".*": {
+          "sni": "www.docker.com"
+        }
+      },
+      "*.msecnd.net": {
+        ".*": {
+          "sni": "baidu.com"
+        }
+      },
+      "*archive.org": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "ig.me": {
+      "*behance.net": {
+        ".*": {
+          "sni": "behance.net"
+        }
+      },
+      "*bilibili.tv": {
+        ".*": {
+          "sni": "bilibili.tv"
+        }
+      },
+      "*discord.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*dropbox.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "*.ig.me": {
+      "*f-droid.org": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions|wikibooks).org$": {
+      "*lumalabs.ai": {
         ".*": {
-          "sni": "mediawiki.org"
+          "sni": "vercel.com"
         }
       },
-      "*w.wiki": {
+      "*netflix.com": {
         ".*": {
-          "sni": "mediawiki.org"
-        }
-      },
-      "ok.ru": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "www.ok.ru": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "^.*(cdn-telegram.org|web.telegram.org|telegram.org|telegram.me|tg.dev|t.me|telesco.pe)$": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "^(?!assets|gql|vod-secure|panels)\\.twitch\\.tv$": {
-        ".*": {
-          "sni": "cloudfront.net",
-          "desc": "聊天需要 wss://irc-ws.chat.twitch.tv/"
-        }
-      },
-      "*reddit.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*redditstatic.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "redd.it": {
-        ".*": {
-          "redirect": "www.reddit.com"
-        }
-      },
-      "*redd.it": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*redditmedia.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*bbci.co.uk": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*bbc.co.uk": {
-        ".*": {
-          "sni": "www.baidu.com"
+          "sni": "netflix.com"
         }
       },
       "*nytimes.com": {
@@ -870,83 +1737,37 @@
           "sni": "www.baidu.com"
         }
       },
-      "*nyt.com": {
+      "*patreon.com": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "github.com": {
-        "^(/[^/]+){2,}/?(\\?.*)?$": {
-          "tampermonkeyScript": "https://gitee.com/wangliang181230/dev-sidecar/raw/scripts/tampermonkey.js",
-          "script": "https://gitee.com/wangliang181230/dev-sidecar/raw/scripts/GithubEnhanced-High-Speed-Download.user.js",
-          "remark": "注：上面所使用的脚本地址，为高速镜像地址。",
-          "desc": "油猴脚本：高速下载 Git Clone/SSH、Release、Raw、Code(ZIP) 等文件 (公益加速)、项目列表单文件快捷下载、添加 git clone 命令"
-        },
-        "^(/[\\w-.]+){2,}/?(\\?.*)?$": null,
-        "^((/[^/]+){2,})/raw((/[^/]+)+\\.(jpg|jpeg|png|gif))(\\?.*)?$": {
-          "proxy": null,
-          "sni": null,
-          "cacheDays": 365,
-          "desc": "仓库内图片重定向，缓存1年。"
-        },
-        "^((/[^/]+){2,})/raw((/[^/]+)+\\.js)(\\?.*)?$": {
-          "proxy": null,
-          "sni": null,
-          "responseReplace": {
-            "headers": {
-              "content-type": "application/javascript; charset=utf-8"
-            }
-          },
-          "desc": "仓库内脚本，设置响应头Content-Type。作用：方便script拦截器直接使用，避免引起跨域问题和脚本内容限制问题。"
-        }
-      },
-      "github.githubassets.com": {
-        "^(/[^/]+)*/[^./]+\\.(svg|png|gif|jpg|jpeg|ico|js|css)(\\?.*)?$": {
-          "cacheDays": 365,
-          "desc": "图片、JS文件、CSS文件，缓存1年"
-        },
-        ".*.backup": {
-          "desc": "github.com域名下，该请求已经不存在，此配置暂时先备份掉。",
-          "proxy": "github.com",
-          "sni": "baidu.com",
-          "responseReplace": {
-            "headers": {
-              "access-control-allow-origin": "*",
-              "cross-origin-resource-policy": "cross-origin",
-              "set-cookie": "[remove]"
-            }
-          }
-        }
-      },
-      "opengraph.githubassets.com": {
-        "^/(([^/]+/){3}issues/\\d+)?(\\?.*)?$": {
-          "cacheDays": 365
-        },
+      "*pornhub.com": {
         ".*": {
-          "sni": "baidu.com"
+          "sni": "www.baidu.com"
         }
       },
-      "*.githubusercontent.com": {
+      "*spotify.com": {
         ".*": {
-          "sni": "baidu.com",
-          "requestReplace": {
-            "headers": {
-              "accept-language": "en-US,en;q=0.8"
-            }
-          }
+          "sni": "spotify.com"
         }
       },
-      "collector.github.com": {
-        "/github/collect": {
-          "success": true,
-          "status": 204,
-          "desc": "采集数据，快速成功"
-        },
+      "*thetvdb.com": {
         ".*": {
-          "sni": "baidu.com"
+          "sni": "www.baidu.com"
         }
       },
-      "gist.github.com": {
+      "*xvideos.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "cn.vuejs.org": {
+        ".*": {
+          "sni": "vuejs.org"
+        }
+      },
+      "*.ggpht.com": {
         ".*": {
           "sni": "baidu.com"
         }
@@ -954,57 +1775,6 @@
       "*.github.io": {
         ".*": {
           "sni": "baidu.com"
-        }
-      },
-      "*.gravatar.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.windows.net": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "fonts.(googleapis|gstatic).com": {
-        ".*": {
-          "proxy": "fonts.googleapis.cn"
-        }
-      },
-      "^(?!.*(translate-pa).google(?:apis|usercontent)?.com).*google(?:apis|usercontent)?.com$": {
-        ".*": {
-          "sni": "www.google.cn",
-          "desc": "部分需要走其它代理的服务"
-        }
-      },
-      "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
-        ".*": {
-          "sni": "www.google.cn"
-        }
-      },
-      "www.gstatic.com": {
-        "/recaptcha/.*": {
-          "proxy": "www.recaptcha.net"
-        }
-      },
-      "www.docker.com": {
-        ".*": {
-          "sni": "www.docker.com"
-        }
-      },
-      "login.docker.com": {
-        ".*": {
-          "sni": "login.docker.com"
-        }
-      },
-      "download.docker.com": {
-        ".*": {
-          "sni": "download.docker.com"
-        }
-      },
-      "*.docker.com": {
-        ".*": {
-          "sni": "www.docker.com"
         }
       },
       "*.pixiv.net": {
@@ -1022,28 +1792,88 @@
           "sni": "baidu.com"
         }
       },
-      "*.ads-pixiv.net": {
+      "*.yahoo.com": {
         ".*": {
-          "sni": "baidu.com"
+          "sni": "none"
         }
       },
-      "*.nikke-global.com": {
+      "*bbci.co.uk": {
         ".*": {
-          "sni": "baidu.com"
+          "sni": "www.baidu.com"
+        }
+      },
+      "*discord.gg": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*ehwiki.org": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*flickr.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*github.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*instagr.am": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*pinimg.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*reddit.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*rumble.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*tumblr.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*vercel.app": {
+        ".*": {
+          "sni": "vercel.com"
+        }
+      },
+      "*z-lib.help": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "_*claude.ai": {
+        ".*": {
+          "sni": "claude.ai"
         }
       },
       "i.pximg.net": {
         ".*": {
-          "cacheDays": 365,
           "requestReplace": {
             "headers": {
               "referer": "https://www.pixiv.net/"
             },
             "desc": "篡改请求头'Referer'，使Pixiv图片链接可以单独在浏览器打开"
-          }
+          },
+          "cacheDays": 365
         }
       },
-      "*.youtube.com": {
+      "i.ytimg.com": {
         ".*": {
           "sni": "baidu.com"
         }
@@ -1052,1023 +1882,267 @@
         ".*": {
           "sni": "baidu.com"
         }
-      },
-      "*.youtube-nocookie.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.ggpht.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "i.ytimg.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.greasyfork.org": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.cn-greasyfork.org": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.huggingface.co": {
-        ".*": {
-          "sni": "huggingface.cn"
-        }
-      },
-      "cn.vuejs.org": {
-        ".*": {
-          "sni": "vuejs.org"
-        }
-      },
-      "*z-library.sk": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*z-lib.help": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*.steamserver.net": {
-        ".*": {
-          "sni": "www.baidu.com",
-          "desc": "steam登录不稳定？无法复现先这么写"
-        }
-      },
-      "images.steamusercontent.com": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "^(?!.*cloudflare).*steamstatic.com$": {
-        ".*": {
-          "sni": "baidu.com",
-          "desc": "steam社区数据不能也不需调整sni,直接直连"
-        }
-      },
-      "*.steampowered.com": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "*f-droid.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "fdroid.org": {
-        ".*": {
-          "sni": "www.baidu.com"
-        }
-      },
-      "jsd.proxy.aks.moe": {
-        "^.*\\?DS_DOWNLOAD$": {
-          "requestReplace": {
-            "doDownload": true
-          },
-          "responseReplace": {
-            "doDownload": true
-          }
-        }
-      },
-      "fastly.jsdelivr.net": {
-        "^.*\\?DS_DOWNLOAD$": {
-          "requestReplace": {
-            "doDownload": true
-          },
-          "responseReplace": {
-            "doDownload": true
-          }
-        }
-      },
-      "jsdelivr.pai233.top": {
-        "^.*\\?DS_DOWNLOAD$": {
-          "requestReplace": {
-            "doDownload": true
-          },
-          "responseReplace": {
-            "doDownload": true
-          }
-        }
-      },
-      "raw.incept.pw": {
-        "^.*\\?DS_DOWNLOAD$": {
-          "requestReplace": {
-            "doDownload": true
-          },
-          "responseReplace": {
-            "doDownload": true
-          }
-        }
-      },
-      "*.msecnd.net": {
-        ".*": {
-          "sni": "baidu.com"
-        }
-      },
-      "*.instagram.com": {
-        ".*": {
-          "sni": "g.cn"
-        }
-      },
-      "*.cdninstagram.com": {
-        ".*": {
-          "sni": "g.cn"
-        }
-      },
-      "*.intercom.io": {
-        ".*": {
-          "sni": "g.cn"
-        }
-      }
-    },
-    "preSetIpList": {
-      "cdn.jsdelivr.net": {
-        "104.16.89.20": true
-      },
-      "images.prismic.io": {
-        "151.101.78.208": true
-      },
-      "api.fanbox.cc": {
-        "172.64.146.116": true
-      },
-      "(*pixiv.net|*fanbox.cc)": {
-        "210.140.139.155": true
-      },
-      "*pximg.net": {
-        "210.140.139.133": true
-      },
-      "(*pinterest.com|*pinimg.com)": {
-        "151.101.0.84": true
-      },
-      "upld.e-hentai.org": {
-        "89.149.221.236": true
-      },
-      "*e-hentai.org": {
-        "172.66.132.196": true
-      },
-      "*ehgt.org": {
-        "109.236.85.28": true
-      },
-      "*exhentai.org": {
-        "178.175.132.22": true
-      },
-      "*hentaiverse.org": {
-        "178.162.151.56": true
-      },
-      "*ehwiki.org": {
-        "178.162.151.58": true
-      },
-      "*ehtracker.org": {
-        "5.79.104.115": true
-      },
-      "*gelbooru.com": {
-        "108.181.143.72": true
-      },
-      "*sukebei.nyaa.si": {
-        "198.251.89.38": true
-      },
-      "*nyaa.si": {
-        "186.2.163.20": true
-      },
-      "*pornhub.com": {
-        "66.254.114.40": true
-      },
-      "(*xvideos.com|*xnxx.com)": {
-        "185.88.181.3": true
-      },
-      "*xhamster.com": {
-        "104.17.35.109": true
-      },
-      "*xhamster42.desi": {
-        "104.17.35.109": true
-      },
-      "*rutube.ru": {
-        "109.238.90.239": true
-      },
-      "gemini.google.com": {
-        "47.102.115.14": true
-      },
-      "(*google*|*google.com|*gstatic.com|*youtube.com|*youtu.be|*.ggpht.com|i.ytimg.com|*youtube-nocookie.com|*blogger.com|*android.com)": {
-        "34.49.133.3": true
-      },
-      "consent.yahoo.com": {
-        "consent.yahoo.com": true
-      },
-      "guce.yahoo.com": {
-        "guce.yahoo.com": true
-      },
-      "external-content.duckduckgo.com": {
-        "20.43.160.189": true
-      },
-      "*duckduckgo.com": {
-        "20.43.161.105": true
-      },
-      "*startpage.com": {
-        "67.63.58.139": true
-      },
-      "(*facebook.com|*fbcdn.net|business.whatsapp.com)": {
-        "157.240.22.169": true
-      },
-      "(*whatsapp.com|*whatsapp.net)": {
-        "157.240.225.60": true
-      },
-      "(*instagram.com|*instagr.am|ig.me|*.ig.me)": {
-        "157.240.27.174": true
-      },
-      "*.media.tumblr.com": {
-        "192.0.77.3": true
-      },
-      "*tumblr.com": {
-        "192.0.77.40": true
-      },
-      "api.github.com": {
-        "20.205.243.168": true
-      },
-      "docs.github.com": {
-        "185.199.110.154": true
-      },
-      "(support.github.com|resources.github.com)": {
-        "185.199.108.133": true
-      },
-      "services.github.com": {
-        "140.82.113.18": true
-      },
-      "community.github.com": {
-        "140.82.114.17": true
-      },
-      "*github.com": {
-        "20.27.177.113": true
-      },
-      "objects-origin.githubusercontent.com": {
-        "140.82.113.22": true
-      },
-      "*githubusercontent.com": {
-        "185.199.108.133": true,
-        "185.199.109.133": true,
-        "185.199.110.133": true,
-        "185.199.111.133": true,
-        "167.82.0.133": true,
-        "167.82.20.133": true,
-        "167.82.84.133": true,
-        "167.82.88.133": true,
-        "146.75.112.133": true,
-        "146.75.20.133": true,
-        "151.101.64.133": true,
-        "151.101.76.133": true,
-        "151.101.128.133": true,
-        "151.101.192.133": true,
-        "199.232.208.133": true,
-        "199.232.212.133": true,
-        "199.232.232.133": true
-      },
-      "*huggingface.co": {
-        "3.167.200.113": true
-      },
-      "hub.docker.com": {
-        "52.4.183.149": true,
-        "54.156.14.194": null,
-        "54.208.73.48": null,
-        "100.29.167.200": null,
-        "44.221.37.199": null,
-        "52.44.227.212": null,
-        "54.156.140.159": null
-      },
-      "*vercel.app": {
-        "64.29.17.193": true
-      },
-      "*character.ai": {
-        "104.18.223.226": true
-      },
-      "internal-api.virginia.labs.lumalabs.ai": {
-        "34.204.141.236": true
-      },
-      "*lumalabs.ai": {
-        "76.76.21.21": true
-      },
-      "upload.wikimedia.org": {
-        "208.80.154.240": true,
-        "208.80.153.240": true,
-        "185.15.58.240": true
-      },
-      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
-        "185.15.59.224": true
-      },
-      "*archiveofourown.org": {
-        "104.20.8.2": true
-      },
-      "(*z-library.sk|*z-lib.help)": {
-        "176.123.7.105": true
-      },
-      "*archive.org": {
-        "207.241.237.2": true
-      },
-      "*greasyfork.org": {
-        "96.126.98.220": true
-      },
-      "*itch.io": {
-        "142.171.75.212": true
-      },
-      "*steamcommunity.com": {
-        "184.50.187.66": true,
-        "23.194.234.100": true,
-        "23.76.43.59": true,
-        "184.84.187.165": true,
-        "23.51.204.111": true
-      },
-      "store.steampowered.com": {
-        "23.46.197.62": true,
-        "23.205.36.100": true,
-        "23.202.181.219": true,
-        "23.206.181.48": true,
-        "23.219.73.99": true,
-        "23.35.101.126": true,
-        "104.99.49.179": true,
-        "23.218.33.47": true
-      },
-      "hello.vrchat.com": {
-        "198.185.159.145": true
-      },
-      "ask.vrchat.com": {
-        "216.66.8.43": true
-      },
-      "account.proton.me": {
-        "185.70.42.36": true
-      },
-      "account-api.proton.me": {
-        "185.70.42.20": true
-      },
-      "mail.proton.me": {
-        "185.70.42.37": true
-      },
-      "calendar.proton.me": {
-        "185.70.42.39": true
-      },
-      "drive.proton.me": {
-        "185.70.42.40": true
-      },
-      "pass.proton.me": {
-        "185.70.42.63": true
-      },
-      "*proton.me": {
-        "185.70.42.45": true
-      },
-      "tamtam-lp*.ok.ru": {
-        "217.20.158.136": true
-      },
-      "(ok.ru|www.ok.ru)": {
-        "5.61.23.11": true
-      },
-      "*ok.ru": {
-        "5.61.23.30": true
-      },
-      "cdn1.cdn-telegram.org": {
-        "34.111.15.3": true
-      },
-      "cdn4.cdn-telegram.org": {
-        "34.111.35.152": true
-      },
-      "cdn5.cdn-telegram.org": {
-        "34.111.108.175": true
-      },
-      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
-        "149.154.174.200": true
-      },
-      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
-        "93.183.68.61": true
-      },
-      "*.web.telegram.org": {
-        "149.154.170.200": true
-      },
-      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
-        "93.183.68.61": true
-      },
-      "*discord.com": {
-        "162.159.136.232": true
-      },
-      "*discord.gg": {
-        "162.159.130.234": true
-      },
-      "*discordapp.com": {
-        "162.159.130.233": true
-      },
-      "*discordapp.net": {
-        "162.159.130.232": true
-      },
-      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
-        "151.101.194.167": true
-      },
-      "*gamer.com.tw": {
-        "104.16.223.104": true
-      },
-      "*rumble.com": {
-        "205.220.231.24": true
-      },
-      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
-        "146.75.33.140": true
-      },
-      "*quora.com": {
-        "162.159.152.17": true,
-        "162.159.153.247": true
-      },
-      "*v2ex.com": {
-        "172.66.137.6": true
-      },
-      "*eyny.com": {
-        "172.241.24.66": true
-      },
-      "*onedrive.live.com": {
-        "13.107.42.13": true
-      },
-      "*mega.io": {
-        "66.203.127.11": true
-      },
-      "*mega.nz": {
-        "31.216.144.5": true
-      },
-      "*api.mega.co.nz": {
-        "66.203.125.15": true
-      },
-      "*dropbox.com": {
-        "162.125.248.18": true
-      },
-      "*pixeldrain.com": {
-        "103.107.198.191": true
-      },
-      "*amazon.co.jp": {
-        "13.35.219.115": true
-      },
-      "*etsy.com": {
-        "151.101.193.224": true
-      },
-      "*bbc.com": {
-        "146.75.36.81": true
-      },
-      "(*bbci.co.uk|*bbc.co.uk)": {
-        "23.77.21.232": true
-      },
-      "(*nytimes.com|*nyt.com)": {
-        "146.75.117.164": true
-      },
-      "*rfi.fr": {
-        "118.214.247.61": true
-      },
-      "graphql.api.dailymotion.com": {
-        "34.84.14.157": true
-      },
-      "*dailymotion.com": {
-        "195.8.215.140": true
-      },
-      "forum.f-droid.org": {
-        "37.218.242.53": true
-      },
-      "(f-droid.org|www.f-droid.org|fdroid.org)": {
-        "37.218.243.72": true
-      },
-      "*apkmirror.com": {
-        "104.17.67.215": true
-      },
-      "*gravatar.com": {
-        "192.0.80.240": true
-      },
-      "a5.behance.net": {
-        "13.35.185.106": true
-      },
-      "*okx.com": {
-        "8.212.101.92": true
-      },
-      "*patreon.com": {
-        "104.16.25.14": true
-      },
-      "*patreonusercontent.com": {
-        "104.18.70.106": true
-      },
-      "*vimeo.com": {
-        "162.159.138.60": true
-      },
-      "identity.flickr.com": {
-        "52.6.22.65": true
-      },
-      "*flickr.com": {
-        "13.33.142.102": true
-      },
-      "*imgur.com": {
-        "199.232.196.193": true
-      },
-      "*thetvdb.com": {
-        "13.35.222.88": true,
-        "13.3.222.88": true
-      },
-      "www.ecosia.org": {
-        "2001:67c:2960:6464::ac40:9647": true
-      },
-      "copilot.microsoft.com": {
-        "2001:67c:2960:6464::cc4f:c5ed": true
-      },
-      "*claude.ai": {
-        "2001:67c:2960:6464::a04f:680a": true
-      },
-      "*netflix.com": {
-        "2001:67c:2960:6464::2cf2:0da1": true
-      },
-      "*disneyplus.com": {
-        "2001:67c:2960:6464::17c5:ea7c": true
-      },
-      "disney.*.edge.bamgrid.com": {
-        "2001:67c:2960:6464::36e6:4744": true
-      },
-      "*bilibili.tv": {
-        "2001:67c:2960:6464::6797:9785": true
-      },
-      "open.spotify.com": {
-        "2001:67c:2960:6464::9765:c32a": true
-      },
-      "*.spotify.com": {
-        "2001:67c:2960:6464::23ba:e018": true
-      },
-      "itch.io": {
-        "142.171.75.212": true
-      },
-      "*behance.net": {
-        "2001:67c:2960:6464::9765:41c5": true
-      },
-      "telegra.ph": {
-        "95.161.64.99": true,
-        "95.161.64.100": true,
-        "149.154.161.145": true
       },
       "*233v2.com": {
-        "52.74.232.59": true,
-        "13.52.115.166": true
-      },
-      "_*.yahoo.com": {
-        "2001:67c:2960:6464::b4de:6a0b": true
-      },
-      "_s.yimg.com": {
-        "2001:67c:2960:6464::b4de:6a0b": true
-      },
-      "*pixiv.net": {
-        "210.140.139.155": true
-      },
-      "*fanbox.cc": {
-        "210.140.139.155": true
-      },
-      "*pinterest.com": {
-        "151.101.0.84": true
-      },
-      "*pinimg.com": {
-        "151.101.0.84": true
-      },
-      "*xvideos.com": {
-        "185.88.181.3": true
-      },
-      "*xnxx.com": {
-        "185.88.181.3": true
-      },
-      "_google_backup": {
-        "8.137.102.117": {
-          "desc": "阿里云中转"
-        },
-        "47.102.115.14": true,
-        "194.87.31.227": true,
-        "136.124.0.28": true,
-        "136.124.0.29": true,
-        "34.49.133.3": true,
-        "142.251.189.206": true,
-        "142.251.190.206": true,
-        "172.217.204.206": true,
-        "172.253.122.206": true,
-        "38.180.33.93": true
-      },
-      "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
-        "8.137.102.117": {
-          "desc": "阿里云中转"
-        },
-        "142.251.189.206": {
-          "desc": "自动地区官方"
+        ".*": {
+          "sni": "www.baidu.com"
         }
-      },
-      "*facebook.com": {
-        "157.240.22.169": true
-      },
-      "*fbcdn.net": {
-        "157.240.22.169": true
-      },
-      "business.whatsapp.com": {
-        "157.240.22.169": true
-      },
-      "*whatsapp.com": {
-        "157.240.225.60": true
-      },
-      "*whatsapp.net": {
-        "157.240.225.60": true
-      },
-      "*instagram.com": {
-        "157.240.236.174": true,
-        "157.240.27.174": true
-      },
-      "*instagr.am": {
-        "157.240.236.174": true,
-        "157.240.27.174": true
-      },
-      "ig.me": {
-        "157.240.236.174": true,
-        "157.240.27.174": true
-      },
-      "*.ig.me": {
-        "157.240.236.174": true,
-        "157.240.27.174": true
-      },
-      "github.com": {
-        "20.205.243.166": true,
-        "20.27.177.113": true,
-        "20.200.245.247": true,
-        "20.26.156.215": false,
-        "20.87.245.0": false,
-        "4.237.22.38": false,
-        "20.201.28.151": false,
-        "140.82.113.3": false,
-        "140.82.114.4": false,
-        "140.82.116.3": false,
-        "140.82.116.4": false,
-        "140.82.121.3": false,
-        "140.82.121.4": false
-      },
-      "www.github.com": {
-        "20.205.243.166": true,
-        "20.27.177.113": true,
-        "20.200.245.247": true
-      },
-      "*.huggingface.co": {
-        "3.167.200.113": true,
-        "54.192.18.102": true,
-        "18.64.8.21": true,
-        "18.172.21.89": true,
-        "3.169.5.41": true,
-        "18.164.154.63": true,
-        "18.164.154.67": true,
-        "13.35.58.66": true,
-        "99.84.188.26": true,
-        "108.159.120.127": true,
-        "18.238.238.129": true,
-        "65.9.141.54": true,
-        "108.158.147.92": true,
-        "18.155.216.6": true,
-        "99.84.9.90": true,
-        "52.85.216.90": true,
-        "18.64.207.2": true,
-        "13.33.88.77": true
-      },
-      "discuss.huggingface.co": {
-        "3.167.200.113": true
-      },
-      "status.huggingface.co": {
-        "3.167.200.113": true
-      },
-      "cdn-avatars.huggingface.co": {
-        "3.167.200.113": true
-      },
-      "cdn-uploads.huggingface.co": {
-        "3.167.200.113": true
-      },
-      "greasyfork.org": {
-        "96.126.98.220": true,
-        "50.116.4.196": true
-      },
-      "*tamtam-lp*.ok.ru": {
-        "217.20.158.136": true
-      },
-      "ok.ru": {
-        "5.61.23.11": true
-      },
-      "www.ok.ru": {
-        "5.61.23.11": true
-      },
-      "*zws1*.web.telegram.org": {
-        "149.154.174.200": true
-      },
-      "*zws3*.web.telegram.org": {
-        "149.154.174.200": true
-      },
-      "*zws2*.web.telegram.org": {
-        "93.183.68.61": true
-      },
-      "*zws4*.web.telegram.org": {
-        "93.183.68.61": true
-      },
-      "^.*\\.web.telegram.org$": {
-        "149.154.170.200": true
-      },
-      "*telegram.org": {
-        "93.183.68.61": true
-      },
-      "*telegram.me": {
-        "93.183.68.61": true
-      },
-      "*tg.dev": {
-        "93.183.68.61": true
-      },
-      "t.me": {
-        "93.183.68.61": true
-      },
-      "*.t.me": {
-        "93.183.68.61": true
-      },
-      "*telesco.pe": {
-        "93.183.68.61": true
-      },
-      "assets.twitch.tv": {
-        "3.167.200.113": true
-      },
-      "panels.twitch.tv": {
-        "3.167.200.113": true
-      },
-      "passport.twitch.tv": {
-        "3.167.200.113": true
-      },
-      "irc-ws.chat.twitch.tv": {
-        "3.167.200.113": true
-      },
-      "*twitch.tv": {
-        "151.101.194.167": true
-      },
-      "m.twitch.tv": {
-        "151.101.194.167": true
-      },
-      "gql.twitch.tv": {
-        "151.101.194.167": true
-      },
-      "*nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "account.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "live.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "live2.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "sp.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "nvapi.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "embed.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "wktk.nicovideo.jp": {
-        "3.167.200.113": true
-      },
-      "*reddit.com": {
-        "146.75.33.140": true
-      },
-      "*redditstatic.com": {
-        "146.75.33.140": true
-      },
-      "*redd.it": {
-        "146.75.33.140": true
-      },
-      "*redditmedia.com": {
-        "146.75.33.140": true
-      },
-      "*bbci.co.uk": {
-        "23.77.21.232": true
       },
       "*bbc.co.uk": {
-        "23.77.21.232": true
-      },
-      "*nytimes.com": {
-        "146.75.117.164": true
-      },
-      "*nyt.com": {
-        "146.75.117.164": true
-      },
-      "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions).org$": {
-        "208.80.153.224": true,
-        "185.15.58.224": true
-      },
-      "*w.wiki": {
-        "208.80.153.224": true,
-        "185.15.58.224": true
-      },
-      "gist.github.com": {
-        "20.27.177.113": true,
-        "20.200.245.247": true,
-        "20.205.243.166": false,
-        "140.82.116.3": true,
-        "140.82.116.4": true,
-        "4.237.22.38": true
-      },
-      "github.dev": {
-        "20.43.185.14": true,
-        "20.99.227.183": true,
-        "51.137.3.17": true,
-        "52.224.38.193": true
-      },
-      "sessions-bugsnag.docker.com": {
-        "54.156.14.194": true,
-        "54.208.73.48": true,
-        "100.29.167.200": true,
-        "44.221.37.199": null,
-        "52.44.227.212": null,
-        "54.156.140.159": null
-      },
-      "i.pximg.net": {
-        "210.140.139.132": true,
-        "210.140.139.137": true,
-        "203.137.29.48": true,
-        "210.140.139.134": true,
-        "203.137.29.49": true,
-        "210.140.139.133": true,
-        "210.140.139.135": true,
-        "203.137.29.47": true
-      },
-      "a.pixiv.org": {
-        "210.140.139.182": true,
-        "210.140.139.183": true,
-        "210.140.139.184": true
-      },
-      "*.fanbox.cc": {
-        "210.140.139.155": true
-      },
-      "fonts.googleapis.cn": {
-        "120.253.255.34": true,
-        "220.181.174.98": true,
-        "114.250.67.34": true,
-        "203.208.41.98": true,
-        "220.181.174.162": true
-      },
-      "^(aistudio|.*pa.clients6|apis).google.com$": {
-        "8.137.102.117": {
-          "desc": "AI Studio相关,阿里云,解锁地区限制"
+        ".*": {
+          "sni": "www.baidu.com"
         }
       },
-      "scholar.googleusercontent.com": {
-        "142.251.190.206": true,
-        "172.217.204.206": true,
-        "172.253.122.206": true
-      },
-      "(*account*|scholar).google.com": {
-        "172.217.204.206": true
-      },
-      "^.*(with)?google(apis|usercontent)?.com.*$": {
-        "8.137.102.117": {
-          "desc": "阿里云中转"
-        },
-        "142.251.189.206": {
-          "desc": "自动地区官方"
+      "*claude.ai": {
+        ".*": {
+          "sni": "claude.ai"
         }
       },
-      "*.youtube.com": {
-        "8.137.102.117": true
+      "*fanbox.cc": {
+        ".*": {
+          "sni": "pixivision.net"
+        }
       },
-      "*.youtu.be": {
-        "8.137.102.117": true
+      "*fbcdn.net": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
-      "*.youtube-nocookie.com": {
-        "8.137.102.117": true
+      "*imgur.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
-      "*.ggpht.com": {
-        "8.137.102.117": true
+      "*pixiv.net": {
+        ".*": {
+          "sni": "pixivision.net"
+        }
       },
-      "i.ytimg.com": {
-        "8.137.102.117": true
+      "*proton.me": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
-      "*.gstatic.com": {
-        "8.137.102.117": true
+      "*pximg.net": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
-      "*.greasyfork.org": {
-        "96.126.98.220": true,
-        "50.116.4.196": true
+      "*quora.com": {
+        ".*": {
+          "sni": "fs.quoracdn.net"
+        }
       },
-      "*.cn-greasyfork.org": {
-        "96.126.98.220": true,
-        "50.116.4.196": true
+      "*rutube.ru": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
-      "*.instagram.com": {
-        "163.70.159.174": true,
-        "57.144.144.34": true,
-        "57.144.216.34": true,
-        "157.240.229.174": true,
-        "57.144.188.34": true,
-        "157.240.210.174": true,
-        "157.240.252.174": true,
-        "102.132.97.174": true,
-        "31.13.94.174": true,
-        "31.13.85.174": true,
-        "102.132.104.174": true
-      },
-      "*.cdninstagram.com": {
-        "57.144.152.192": true,
-        "57.144.220.192": true,
-        "57.144.216.192": true
-      },
-      "*z-library.sk": {
-        "176.123.7.105": true
-      },
-      "*z-lib.help": {
-        "176.123.7.105": true
-      },
-      "community.cloudflare.steamstatic.com": {
-        "104.18.42.105": true,
-        "172.64.145.151": true
-      },
-      "*.steamstatic.com": {
-        "151.101.91.52": true,
-        "146.75.47.52": true,
-        "146.75.115.52": true,
-        "151.101.111.52": true,
-        "151.101.3.52": true,
-        "151.101.195.52": true,
-        "151.101.79.52": true,
-        "151.101.67.52": true,
-        "146.75.51.52": true
-      },
-      "images.steamusercontent.com": {
-        "23.2.16.208": true,
-        "203.69.138.224": true,
-        "23.54.155.102": true,
-        "23.56.109.164": true,
-        "184.30.148.77": true,
-        "184.27.185.92": true,
-        "23.40.43.24": true,
-        "218.231.251.9": true,
-        "23.216.145.139": true,
-        "184.24.77.66": true,
-        "23.46.10.70": true,
-        "23.212.190.51": true,
-        "104.77.160.215": true,
-        "2.20.68.235": true,
-        "95.101.24.216": true,
-        "41.175.223.40": true,
-        "23.207.202.198": true,
-        "95.100.156.90": true
-      },
-      "cdn.steamcommunity.com": {
-        "23.221.227.5": true
-      },
-      "api.steampowered.com": {
-        "23.216.236.253": true,
-        "23.199.145.101": true,
-        "104.68.46.176": true,
-        "184.85.112.102": true,
-        "23.36.106.129": true,
-        "23.207.106.113": true,
-        "23.5.250.50": true,
-        "104.71.182.190": true
-      },
-      "checkout.steampowered.com": {
-        "23.58.97.230": true,
-        "23.195.152.91": true,
-        "23.196.173.177": true,
-        "23.35.101.126": true,
-        "23.54.153.177": true
-      },
-      "*f-droid.org": {
-        "37.218.243.72": true
+      "*vimeo.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       },
       "fdroid.org": {
-        "37.218.243.72": true
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "github.com": {
+        "^((/[^/]+){2,})/raw((/[^/]+)+\\.(jpg|jpeg|png|gif))(\\?.*)?$": {
+          "cacheDays": 365,
+          "proxy": null,
+          "desc": "仓库内图片重定向，缓存1年。",
+          "sni": null
+        },
+        "^((/[^/]+){2,})/raw((/[^/]+)+\\.js)(\\?.*)?$": {
+          "responseReplace": {
+            "headers": {
+              "content-type": "application/javascript; charset=utf-8"
+            }
+          },
+          "proxy": null,
+          "desc": "仓库内脚本，设置响应头Content-Type。作用：方便script拦截器直接使用，避免引起跨域问题和脚本内容限制问题。",
+          "sni": null
+        },
+        "^(/[\\w-.]+){2,}/?(\\?.*)?$": null,
+        "^(/[^/]+){2,}/?(\\?.*)?$": {
+          "tampermonkeyScript": "https://gitee.com/wangliang181230/dev-sidecar/raw/scripts/tampermonkey.js",
+          "remark": "注：上面所使用的脚本地址，为高速镜像地址。",
+          "script": "https://gitee.com/wangliang181230/dev-sidecar/raw/scripts/GithubEnhanced-High-Speed-Download.user.js",
+          "desc": "油猴脚本：高速下载 Git Clone/SSH、Release、Raw、Code(ZIP) 等文件 (公益加速)、项目列表单文件快捷下载、添加 git clone 命令"
+        }
+      },
+      "s.yimg.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "telegra.ph": {
+        "^/$": {
+          "desc": "资源404,但不影响文字加载,无法加载相关资源丢给彩蛋",
+          "sni": "none"
+        }
+      },
+      "*ehgt.org": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*etsy.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*eyny.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*v2ex.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*xnxx.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "www.ok.ru": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*bbc.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*itch.io": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*mega.io": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*mega.nz": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*nyaa.si": {
+        ".*": {
+          "sni": "ddos-guard.net"
+        }
+      },
+      "*nyt.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*okx.com": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*redd.it": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*.ig.me": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*rfi.fr": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "*w.wiki": {
+        ".*": {
+          "sni": "mediawiki.org"
+        }
+      },
+      "1.1.1.1": {
+        ".*": {
+          "redirect": "one.one.one.one"
+        }
+      },
+      "itch.io": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "redd.it": {
+        ".*": {
+          "redirect": "www.reddit.com"
+        }
+      },
+      "*ok.ru": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "ig.me": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
+      },
+      "ok.ru": {
+        ".*": {
+          "sni": "www.baidu.com"
+        }
       }
     },
+    "whiteList": {
+      "*.bilibili.*": true,
+      "*.icloud.com": true,
+      "*.lenovo.net": true,
+      "192.168.*.*": true,
+      "127.*.*.*": true,
+      "192.168.*": null,
+      "localhost": true,
+      "cn.*": null
+    },
+    "setting": {
+      "defaultTimeout": 20000
+    },
+    "host": "0.0.0.0",
     "dns": {
-      "mapping": {
-        "github.com": "local",
-        "*.github.com": "cf-DoT",
-        "*github*.com": "cf-DoT",
-        "*.github.io": "cf-DoT",
-        "*.jetbrains.com": "cf-DoT",
-        "*.azureedge.net": "cf-DoT",
-        "*.stackoverflow.com": "cf-DoT",
-        "*.docker.com": "cf-DoT",
-        "*.electronjs.org": "cf-DoT",
-        "*.amazonaws.com": "cf-DoT",
-        "*.yarnpkg.com": "cf-DoT",
-        "*.cloudfront.net": "cf-DoT",
-        "*.cloudflare.com": "cf-DoT",
-        "img.shields.io": "cf-DoT",
-        "*.vuepress.vuejs.org": "cf-DoT",
-        "*.gh.docmirror.top": "cf-DoT",
-        "*.v2ex.com": "cf-DoT",
-        "*.pypi.org": "cf-DoT",
-        "*.pixiv.org": "cf-DoT",
-        "*.pximg.net": "cf-DoT",
-        "*.onesignal.com": "cf-DoT",
-        "*.iubenda.com": "cf-DoT"
+      "providers": {
+        "Google-DoH": {
+          "cacheSize": 1000,
+          "server": "https://dns.google/dns-query",
+          "desc": "不可用",
+          "sni": "www.google.cn"
+        },
+        "cf-DoH": {
+          "cacheSize": 1000,
+          "server": "https://cloudflare-dns.com/dns-query",
+          "sni": "baidu.com"
+        },
+        "cf-DoT": {
+          "cacheSize": 1000,
+          "server": "tls://1.1.1.1",
+          "sni": "baidu.com"
+        },
+        "local": {
+          "cacheSize": 10000,
+          "server": "127.0.0.1",
+          "type": "udp"
+        }
       },
       "speedTest": {
+        "dnsProviders": [
+          "cf-DoT",
+          "cf-DoH"
+        ],
         "hostnameList": [
           "google.com",
           "zh.wikipedia.org",
@@ -2082,177 +2156,101 @@
           "steamcommunity.com",
           "api.steampowered.com"
         ],
-        "interval": 60000,
-        "dnsProviders": [
-          "cf-DoT",
-          "cf-DoH"
-        ]
+        "interval": 60000
       },
-      "providers": {
-        "local": {
-          "type": "udp",
-          "server": "127.0.0.1",
-          "cacheSize": 10000
-        },
-        "cf-DoT": {
-          "server": "tls://1.1.1.1",
-          "sni": "baidu.com",
-          "cacheSize": 1000
-        },
-        "cf-DoH": {
-          "server": "https://cloudflare-dns.com/dns-query",
-          "sni": "baidu.com",
-          "cacheSize": 1000
-        },
-        "Google-DoH": {
-          "server": "https://dns.google/dns-query",
-          "sni": "www.google.cn",
-          "cacheSize": 1000,
-          "desc": "不可用"
-        }
+      "mapping": {
+        "*.vuepress.vuejs.org": "cf-DoT",
+        "*.stackoverflow.com": "cf-DoT",
+        "*.gh.docmirror.top": "cf-DoT",
+        "*.cloudflare.com": "cf-DoT",
+        "*.cloudfront.net": "cf-DoT",
+        "*.electronjs.org": "cf-DoT",
+        "*.amazonaws.com": "cf-DoT",
+        "*.azureedge.net": "cf-DoT",
+        "*.jetbrains.com": "cf-DoT",
+        "*.onesignal.com": "cf-DoT",
+        "img.shields.io": "cf-DoT",
+        "*.iubenda.com": "cf-DoT",
+        "*.yarnpkg.com": "cf-DoT",
+        "*.docker.com": "cf-DoT",
+        "*.github.com": "cf-DoT",
+        "*github*.com": "cf-DoT",
+        "*.github.io": "cf-DoT",
+        "*.pixiv.org": "cf-DoT",
+        "*.pximg.net": "cf-DoT",
+        "*.pypi.org": "cf-DoT",
+        "*.v2ex.com": "cf-DoT",
+        "github.com": "local"
       }
-    },
-    "whiteList": {
-      "*.bilibili.*": true,
-      "*.icloud.com": true,
-      "*.lenovo.net": true,
-      "localhost": true,
-      "127.*.*.*": true,
-      "192.168.*.*": true,
-      "cn.*": null,
-      "192.168.*": null
-    },
-    "host": "0.0.0.0",
-    "setting": {
-      "defaultTimeout": 20000
     }
   },
   "proxy": {
+    "remoteDomesticDomainAllowListFileUrl": "https://ghproxy.net/https://raw.githubusercontent.com/pluwen/china-domain-allowlist/main/allow-list.sorl",
+    "excludeDomesticDomainAllowList": false,
     "excludeIpList": {
-      "*ali*": null,
-      "*youpinimg.com": true,
-      "*.live.com": false,
-      "*steaminventoryhelper.com": true,
-      "*.chaoxing.com": true,
-      "testzs.cn": true,
-      "*.zhihu.com": true,
-      "*.hdslb.*": true,
-      "objects-origin.githubusercontent.com": true,
-      "*.ghproxy.net": true,
-      "*.ghp.ci": true,
-      "*.kkgithub.com": true,
-      "*.dgithub.xyz": true,
-      "pages.github.com": true,
-      "help.github.com": true,
-      "docs.github.com": true,
-      "*.github.blog": true,
-      "analytics.githubassets.com": true,
-      "ghcc.githubassets.com": true,
-      "www.docker.com": true,
-      "login.docker.com": true,
-      "api.dso.docker.com": true,
-      "desktop.docker.com": true,
-      "docs.docker.com": true,
-      "*.s-microsoft.com": true,
-      "*.xboxlive.com": true,
-      "*.mihoyo.com": true,
-      "*.elastic.co": true,
-      "*.bilicomic.com": true,
-      "[2049:8c54:813:10c::140]": true,
       "[2409:8a0c:a442:ff40:a51f:4b9c:8b41:25ea]": true,
       "[2606:2800:147:120f:30c:1ba0:fc6:265a]": true,
-      "*.cmicapm.com": true,
-      "*.cloudflare-cn.com": true,
+      "objects-origin.githubusercontent.com": true,
+      "analytics.githubassets.com": true,
+      "*steaminventoryhelper.com": true,
+      "challenges.cloudflare.com": null,
+      "[2049:8c54:813:10c::140]": true,
       "*.microsoftonline.com": true,
-      "*.msedge.net": true,
-      "*kaspersky*.com": true,
-      "*.upd.kaspersky.com": true,
-      "*.lanhuapp.com": true,
-      "*.soboten.com": true,
+      "ghcc.githubassets.com": true,
       "*.sandboxie-plus.com": true,
-      "*.wuyou.net": true,
-      "*.pyecharts.org": true,
-      "*.bcloudlink.com": true,
-      "*.qijishow.com": true,
-      "*.z-lib.fo": true,
-      "*.finalshell.com": true,
-      "*.minebbs.com": true,
-      "*.spigotmc.org": true,
-      "*.virustotal.com": true,
-      "*.gitlab.com": true,
-      "*.deepseek.com": true,
-      "*.youdemai.com": true,
+      "*.cloudflare-cn.com": true,
+      "*.upd.kaspersky.com": true,
+      "api.dso.docker.com": true,
+      "desktop.docker.com": true,
       "*.casualthink.com": true,
-      "44.239.165.12": true,
+      "*.s-microsoft.com": true,
+      "*.bcloudlink.com": true,
+      "*.finalshell.com": true,
+      "*.virustotal.com": true,
+      "login.docker.com": true,
+      "pages.github.com": true,
+      "*.bilicomic.com": true,
+      "*.pyecharts.org": true,
+      "*kaspersky*.com": true,
+      "docs.docker.com": true,
+      "docs.github.com": true,
+      "help.github.com": true,
+      "*.chaoxing.com": true,
+      "*.deepseek.com": true,
+      "*.kkgithub.com": true,
+      "*.lanhuapp.com": true,
+      "*.qijishow.com": true,
+      "*.spigotmc.org": true,
+      "*.xboxlive.com": true,
+      "*.youdemai.com": true,
+      "*youpinimg.com": true,
+      "www.docker.com": true,
+      "*.cmicapm.com": true,
+      "*.dgithub.xyz": true,
+      "*.ghproxy.net": true,
+      "*.github.blog": true,
+      "*.minebbs.com": true,
+      "*.soboten.com": true,
       "3.164.110.117": true,
-      "cn.*": null,
-      "challenges.cloudflare.com": null
-    },
-    "excludeDomesticDomainAllowList": false,
-    "remoteDomesticDomainAllowListFileUrl": "https://ghproxy.net/https://raw.githubusercontent.com/pluwen/china-domain-allowlist/main/allow-list.sorl"
-  },
-  "plugin": {
-    "overwall": {
-      "targets": {
-        "rewards.bing.com": false,
-        "secure.gravatar.com": true,
-        "*.cancer.gov": true,
-        "test-ipv6.com": true,
-        "*.telegra.ph": true,
-        "telegra.ph": true,
-        "*.bing.com": true,
-        "*.github.com": true,
-        "*github*.com": true,
-        "*.gitbook.io": true,
-        "*.nodejs.org": true,
-        "*.npmjs.com": true,
-        "*.wikimedia.org": true,
-        "*.v2ex.com": true,
-        "*.azureedge.net": true,
-        "*.cloudfront.net": true,
-        "*.discourse-cdn.com": true,
-        "*.gravatar.com": true,
-        "*.docker.com": true,
-        "*.vueuse.org": true,
-        "*.elastic.co": true,
-        "*.optimizely.com": true,
-        "*.stackpathcdn.com": true,
-        "*.fastly.net": true,
-        "*.cloudflare.com": true,
-        "*.233v2.com": true,
-        "*.v2fly.org": true,
-        "*.telegram.org": true,
-        "*.amazon.com": true,
-        "*.googleapis.com": true,
-        "*.google-analytics.com": true,
-        "*.cloudflareinsights.com": true,
-        "*.intlify.dev": true,
-        "*.segment.io": true,
-        "*.shields.io": true,
-        "*.jsdelivr.net": true,
-        "*.z-library.sk": true,
-        "*.zlibrary*.se": true,
-        "*.wikipedia-on-ipfs.org": true,
-        "*.chatgpt.com": false,
-        "*.oaiusercontent.com": true,
-        "*.huggingface.co": true,
-        "*.pixiv.org": true,
-        "*.fanbox.cc": true,
-        "*.onesignal.com": true,
-        "*.greasyfork.org": true,
-        "*.cn-greasyfork.org": true
-      },
-      "enabled": true,
-      "pac": {
-        "pacFileUpdateUrl": "https://ghproxy.net/https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
-      }
+      "44.239.165.12": true,
+      "*.elastic.co": true,
+      "*.gitlab.com": true,
+      "*.mihoyo.com": true,
+      "*.msedge.net": true,
+      "*.wuyou.net": true,
+      "*.zhihu.com": true,
+      "*.live.com": false,
+      "*.z-lib.fo": true,
+      "*.hdslb.*": true,
+      "testzs.cn": true,
+      "*.ghp.ci": true,
+      "*ali*": null,
+      "cn.*": null
     }
   },
   "help": {
     "dataList": [
       {
-        "title": "一、问题处理",
-        "rowClass": "title1",
         "children": [
           {
             "title": "1、解决Github访问不了或速度很慢的问题（切换高速IP）",
@@ -2282,21 +2280,21 @@
             "title": "> 点击前往Issue区查找更多帮助信息",
             "url": "https://github.com/docmirror/dev-sidecar/issues?q=state%3Aclosed%20label%3A%22%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E5%8F%AF%E5%8F%82%E8%80%83%22"
           }
-        ]
+        ],
+        "rowClass": "title1",
+        "title": "一、问题处理"
       },
       {
-        "title": "二、功能说明",
-        "rowClass": "title1",
         "children": [
           {
             "title": "> 功能太多，点击前往Wiki页面查看",
             "url": "https://github.com/docmirror/dev-sidecar/wiki"
           }
-        ]
+        ],
+        "rowClass": "title1",
+        "title": "二、功能说明"
       },
       {
-        "title": "三、DevSidecar技术交流群",
-        "rowClass": "title1",
         "children": [
           {
             "title": "QQ 1群：390691483，人数：500 / 500（满）",
@@ -2318,16 +2316,13 @@
             "title": "QQ 5群：767622917，人数：200 / 200（满）",
             "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=nAWi_Rxj7mM4Unp5LMiatmUWhGimtbcB&authKey=aswmlWGjbt3GIWXtvjB2GJqqAKuv7hWjk6UBs3MTb%2Biyvr%2Fsbb1kA9CjF6sK7Hgg&noverify=0&group_code=767622917"
           }
-        ]
+        ],
+        "rowClass": "title1",
+        "title": "三、DevSidecar技术交流群"
       },
       {
-        "title": "四、版本更新日志和下载地址",
-        "rowClass": "title1",
-        "url": "https://github.com/docmirror/dev-sidecar/releases",
         "children": [
           {
-            "title": "v2.0.x",
-            "rowClass": "title2",
             "children": [
               {
                 "title": "待办事项",
@@ -2369,11 +2364,11 @@
                 "title": "[ 2024-12-10 ] v2.0.0-RC1",
                 "url": "https://github.com/docmirror/dev-sidecar/releases/tag/v2.0.0-RC1"
               }
-            ]
+            ],
+            "rowClass": "title2",
+            "title": "v2.0.x"
           },
           {
-            "title": "v1.8.x",
-            "rowClass": "title2",
             "children": [
               {
                 "title": "[ 2024-11-07 ] v1.8.9",
@@ -2415,19 +2410,24 @@
                 "title": "[ 2024-04-08 ] v1.8.0",
                 "url": "https://github.com/docmirror/dev-sidecar/releases/tag/v1.8.0"
               }
-            ]
+            ],
+            "rowClass": "title2",
+            "title": "v1.8.x"
           },
           {
-            "title": "v1.7.x",
-            "rowClass": "title2",
             "children": [
               {
                 "title": "[ 2022-03-14 ] v1.7.3",
                 "url": "https://github.com/docmirror/dev-sidecar/releases/tag/v1.7.3"
               }
-            ]
+            ],
+            "rowClass": "title2",
+            "title": "v1.7.x"
           }
-        ]
+        ],
+        "rowClass": "title1",
+        "title": "四、版本更新日志和下载地址",
+        "url": "https://github.com/docmirror/dev-sidecar/releases"
       }
     ]
   }
