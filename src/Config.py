@@ -14,6 +14,7 @@ from header import (
 from utils import (
     is_ipv6_address,
     show_raw_text_for_debugging,
+    sort_json_object,
 )
 from ExtendedDict import ExtendedDict
 
@@ -55,8 +56,9 @@ class Config:
         logger.info(f"Loaded {self.name} config from {self.path}")
 
     def save(self, fn: str):
+        sorted_config = sort_json_object(self.config)
         with open(fn, "w") as f:
-            dump(self.config, f, ensure_ascii=False, indent=2)
+            dump(sorted_config, f, ensure_ascii=False, indent=2)
         logger.info(f"Saved {self.name} config to {fn}")
 
     def download(self, mirrors: list[str]) -> JSON5Object:

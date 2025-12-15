@@ -9,6 +9,7 @@ from Config import (
     LocalConfig,
     RemoteConfig,
 )
+from utils import sort_json_object
 
 logger = logging.getLogger(__name__)
 
@@ -59,14 +60,14 @@ def main():
     logger.info("Merged all configs and cleared excluded domain rules")
 
     # 保存 Dev-Sidecar 配置
-    # TODO: Consider refactoring this block to use Config.save for saving the final configuration.
-    # This would centralize all config-saving logic within the Config class/module, ensuring consistency
-    # and reducing code duplication. Specifically, evaluate whether the logic for writing to
-    # final_config_path (including formatting options like ensure_ascii and indent) can be encapsulated
-    # in Config.save, and update this call to use that method. This will make future changes to the
-    # saving process easier to maintain.
+    # TODO: 考虑将此代码块重构为使用 Config.save 来保存最终配置。
+    # 这样可以将所有配置保存逻辑集中到 Config 类/模块中，保证一致性并减少重复代码。
+    # 具体来说，请评估将写入 final_config_path 的逻辑（包括 ensure_ascii 和 indent 等格式化选项）
+    # 是否可以封装到 Config.save 中，并将此处的写入调用替换为该方法。这样可以让将来对保存流程的
+    # 修改更易维护。
+    sorted_final_config = sort_json_object(final_config)
     with open(final_config_path, "w") as f:
-        dump(final_config, f, ensure_ascii=False, indent=2)
+        dump(sorted_final_config, f, ensure_ascii=False, indent=2)
     logger.info(f"Saved final Dev-Sidecar config as {final_config_path}")
 
 
