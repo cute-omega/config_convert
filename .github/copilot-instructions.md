@@ -17,7 +17,7 @@
 
 - Merging relies on ExtendedDict semantics; if you change precedence, adjust ordering in src/main.py.
 - Excluded domains are removed after all additions (`final_config = a + b + c + d - excluded_domains`).
-- SheasCealer conversion: domain list cleaned (strips $/#, skips entries containing ^), joined with |; empty SNI becomes "none"; empty target becomes 127.0.0.1; only non-IPv6 targets added to `preSetIpList` when skip_IPv6.
+- SheasCealer conversion: domain list cleaned (strips $/#, skips entries containing ^); each domain is processed individually; empty SNI becomes "none"; empty target becomes 127.0.0.1; only non-IPv6 targets added to `preSetIpList` when skip_IPv6.
 - Output serialization: ensure_ascii=False, indent=2, and key sorting via sort_json_object before writing (match existing format for diffs/automation).
 - 对话与代码注释请使用中文，日志输出维持既有英文格式。
 
