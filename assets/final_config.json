@@ -58,9 +58,6 @@
   },
   "server": {
     "preSetIpList": {
-      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
-        "185.15.59.224": true
-      },
       "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
         "142.251.189.206": {
           "desc": "自动地区官方"
@@ -69,30 +66,9 @@
           "desc": "阿里云中转"
         }
       },
-      "(*google*|*google.com|*gstatic.com|*youtube.com|*youtu.be|*.ggpht.com|i.ytimg.com|*youtube-nocookie.com|*blogger.com|*android.com)": {
-        "34.49.133.3": true
-      },
       "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions).org$": {
         "208.80.153.224": true,
         "185.15.58.224": true
-      },
-      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
-        "93.183.68.61": true
-      },
-      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
-        "146.75.33.140": true
-      },
-      "(*facebook.com|*fbcdn.net|business.whatsapp.com)": {
-        "157.240.22.169": true
-      },
-      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
-        "149.154.174.200": true
-      },
-      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
-        "93.183.68.61": true
-      },
-      "(*instagram.com|*instagr.am|ig.me|*.ig.me)": {
-        "157.240.27.174": true
       },
       "^(aistudio|.*pa.clients6|apis).google.com$": {
         "8.137.102.117": {
@@ -106,15 +82,6 @@
         "8.137.102.117": {
           "desc": "阿里云中转"
         }
-      },
-      "(support.github.com|resources.github.com)": {
-        "185.199.108.133": true
-      },
-      "(f-droid.org|www.f-droid.org|fdroid.org)": {
-        "37.218.243.72": true
-      },
-      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
-        "151.101.194.167": true
       },
       "internal-api.virginia.labs.lumalabs.ai": {
         "34.204.141.236": true
@@ -132,19 +99,10 @@
       "(*account*|scholar).google.com": {
         "172.217.204.206": true
       },
-      "(*whatsapp.com|*whatsapp.net)": {
-        "157.240.225.60": true
-      },
       "scholar.googleusercontent.com": {
         "142.251.190.206": true,
         "172.217.204.206": true,
         "172.253.122.206": true
-      },
-      "(*pinterest.com|*pinimg.com)": {
-        "151.101.0.84": true
-      },
-      "(*z-library.sk|*z-lib.help)": {
-        "176.123.7.105": true
       },
       "graphql.api.dailymotion.com": {
         "34.84.14.157": true
@@ -192,18 +150,6 @@
       },
       "disney.*.edge.bamgrid.com": {
         "2001:67c:2960:6464::36e6:4744": true
-      },
-      "(*bbci.co.uk|*bbc.co.uk)": {
-        "23.77.21.232": true
-      },
-      "(*xvideos.com|*xnxx.com)": {
-        "185.88.181.3": true
-      },
-      "(*nytimes.com|*nyt.com)": {
-        "146.75.117.164": true
-      },
-      "(*pixiv.net|*fanbox.cc)": {
-        "210.140.139.155": true
       },
       "*patreonusercontent.com": {
         "104.18.70.106": true
@@ -261,6 +207,21 @@
         "23.219.73.99": true,
         "23.46.197.62": true
       },
+      "zws1*.web.telegram.org": {
+        "149.154.174.200": true
+      },
+      "zws2*.web.telegram.org": {
+        "93.183.68.61": true
+      },
+      "zws3*.web.telegram.org": {
+        "149.154.174.200": true
+      },
+      "zws4*.web.telegram.org": {
+        "93.183.68.61": true
+      },
+      "*youtube-nocookie.com": {
+        "34.49.133.3": true
+      },
       "account-api.proton.me": {
         "185.70.42.20": true
       },
@@ -303,6 +264,9 @@
       },
       "community.github.com": {
         "140.82.114.17": true
+      },
+      "resources.github.com": {
+        "185.199.108.133": true
       },
       "upload.wikimedia.org": {
         "208.80.153.240": true,
@@ -347,6 +311,9 @@
       "*onedrive.live.com": {
         "13.107.42.13": true
       },
+      "*wikifunctions.org": {
+        "185.15.59.224": true
+      },
       "calendar.proton.me": {
         "185.70.42.39": true
       },
@@ -362,8 +329,8 @@
       "passport.twitch.tv": {
         "3.167.200.113": true
       },
-      "(ok.ru|www.ok.ru)": {
-        "5.61.23.11": true
+      "support.github.com": {
+        "185.199.108.133": true
       },
       "*.steamstatic.com": {
         "151.101.111.52": true,
@@ -442,6 +409,9 @@
       "*sukebei.nyaa.si": {
         "198.251.89.38": true
       },
+      "*wikiversity.org": {
+        "185.15.59.224": true
+      },
       "*xhamster42.desi": {
         "104.17.35.109": true
       },
@@ -500,6 +470,15 @@
       "*pixeldrain.com": {
         "103.107.198.191": true
       },
+      "*wikisource.org": {
+        "185.15.59.224": true
+      },
+      "*wikivoyage.org": {
+        "185.15.59.224": true
+      },
+      "*wiktionary.org": {
+        "185.15.59.224": true
+      },
       "docs.github.com": {
         "185.199.110.154": true
       },
@@ -517,6 +496,9 @@
       "sp.nicovideo.jp": {
         "3.167.200.113": true
       },
+      "www.f-droid.org": {
+        "37.218.243.72": true
+      },
       "*apkmirror.com": {
         "104.17.67.215": true
       },
@@ -527,11 +509,23 @@
         "157.240.236.174": true,
         "157.240.27.174": true
       },
+      "*mediawiki.org": {
+        "185.15.59.224": true
+      },
       "*pinterest.com": {
         "151.101.0.84": true
       },
       "*startpage.com": {
         "67.63.58.139": true
+      },
+      "*wikibooks.org": {
+        "185.15.59.224": true
+      },
+      "*wikipedia.org": {
+        "185.15.59.224": true
+      },
+      "*wikiquote.org": {
+        "185.15.59.224": true
       },
       "_google_backup": {
         "142.251.189.206": true,
@@ -632,6 +626,12 @@
       "*whatsapp.net": {
         "157.240.225.60": true
       },
+      "*wikidata.org": {
+        "185.15.59.224": true
+      },
+      "*wikinews.org": {
+        "185.15.59.224": true
+      },
       "*xhamster.com": {
         "104.17.35.109": true
       },
@@ -644,6 +644,9 @@
       "gql.twitch.tv": {
         "151.101.194.167": true
       },
+      "*android.com": {
+        "34.49.133.3": true
+      },
       "*archive.org": {
         "207.241.237.2": true
       },
@@ -653,6 +656,9 @@
       "*bilibili.tv": {
         "2001:67c:2960:6464::6797:9785": true
       },
+      "*blogger.com": {
+        "34.49.133.3": true
+      },
       "*discord.com": {
         "162.159.136.232": true
       },
@@ -661,6 +667,9 @@
       },
       "*f-droid.org": {
         "37.218.243.72": true
+      },
+      "*gstatic.com": {
+        "34.49.133.3": true
       },
       "*lumalabs.ai": {
         "76.76.21.21": true
@@ -687,6 +696,9 @@
       "*xvideos.com": {
         "185.88.181.3": true
       },
+      "*youtube.com": {
+        "34.49.133.3": true
+      },
       "_*.yahoo.com": {
         "2001:67c:2960:6464::b4de:6a0b": true
       },
@@ -694,7 +706,8 @@
         "210.140.139.155": true
       },
       "*.ggpht.com": {
-        "8.137.102.117": true
+        "8.137.102.117": true,
+        "34.49.133.3": true
       },
       "*bbci.co.uk": {
         "23.77.21.232": true
@@ -710,6 +723,9 @@
       },
       "*github.com": {
         "20.27.177.113": true
+      },
+      "*google.com": {
+        "34.49.133.3": true
       },
       "*instagr.am": {
         "157.240.236.174": true,
@@ -744,6 +760,9 @@
         "210.140.139.183": true,
         "210.140.139.184": true
       },
+      "f-droid.org": {
+        "37.218.243.72": true
+      },
       "i.pximg.net": {
         "210.140.139.132": true,
         "210.140.139.133": true,
@@ -755,10 +774,14 @@
         "203.137.29.49": true
       },
       "i.ytimg.com": {
-        "8.137.102.117": true
+        "8.137.102.117": true,
+        "34.49.133.3": true
       },
       "m.twitch.tv": {
         "151.101.194.167": true
+      },
+      "telegram.me": {
+        "93.183.68.61": true
       },
       "*.youtu.be": {
         "8.137.102.117": true
@@ -848,11 +871,20 @@
       "*xnxx.com": {
         "185.88.181.3": true
       },
+      "*youtu.be": {
+        "34.49.133.3": true
+      },
       "www.ok.ru": {
         "5.61.23.11": true
       },
+      "*.w.wiki": {
+        "185.15.59.224": true
+      },
       "*bbc.com": {
         "146.75.36.81": true
+      },
+      "*google*": {
+        "34.49.133.3": true
       },
       "*itch.io": {
         "142.171.75.212": true
@@ -898,6 +930,9 @@
       "*ok.ru": {
         "5.61.23.30": true
       },
+      "w.wiki": {
+        "185.15.59.224": true
+      },
       "ig.me": {
         "157.240.236.174": true,
         "157.240.27.174": true
@@ -910,19 +945,9 @@
       }
     },
     "intercepts": {
-      "(*wikipedia.org|*wikinews.org|*wiktionary.org|*wikibooks.org|*wikiversity.org|*wikidata.org|*wikiquote.org|*wikivoyage.org|*wikifunctions.org|*wikisource.org|*mediawiki.org|w.wiki|*.w.wiki)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
       "^.*(youtube.com|gstatic.com|youtube.nocookie.com|youtu.be|ggpht.com|i.ytimg.com|blogger.com|doodles.google|about.google|android.com)$": {
         ".*": {
           "sni": "www.google.cn"
-        }
-      },
-      "(*google*|*google.com|*gstatic.com|*youtube.com|*youtu.be|*.ggpht.com|i.ytimg.com|*youtube-nocookie.com|*blogger.com|*android.com)": {
-        ".*": {
-          "sni": "g.cn"
         }
       },
       "^.*(wikipedia|wikimedia|wikinews|wiktionary|wikiversity|wikidata|wikiquote|wikivoyage|wikifunctions|wikibooks).org$": {
@@ -941,55 +966,10 @@
           "sni": "www.baidu.com"
         }
       },
-      "(*telegram.org|telegram.me|*tg.dev|t.me|*.t.me|*telesco.pe)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*reddit.com|*redditstatic.com|*redd.it|*redditmedia.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*facebook.com|*fbcdn.net|business.whatsapp.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(zws1*.web.telegram.org|zws3*.web.telegram.org)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(zws2*.web.telegram.org|zws4*.web.telegram.org)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
       "^(?!assets|gql|vod-secure|panels)\\.twitch\\.tv$": {
         ".*": {
           "desc": "聊天需要 wss://irc-ws.chat.twitch.tv/",
           "sni": "cloudfront.net"
-        }
-      },
-      "(*instagram.com|*instagr.am|ig.me|*.ig.me)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(support.github.com|resources.github.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(f-droid.org|www.f-droid.org|fdroid.org)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*twitch.tv|m.twitch.tv|gql.twitch.tv)": {
-        ".*": {
-          "sni": "none"
         }
       },
       "internal-api.virginia.labs.lumalabs.ai": {
@@ -1025,21 +1005,6 @@
           "proxy": "fonts.googleapis.cn"
         }
       },
-      "(*whatsapp.com|*whatsapp.net)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*pinterest.com|*pinimg.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*z-library.sk|*z-lib.help)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
       "graphql.api.dailymotion.com": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1066,26 +1031,6 @@
       "disney.*.edge.bamgrid.com": {
         ".*": {
           "sni": "disney.images.edge.bamgrid.com"
-        }
-      },
-      "(*bbci.co.uk|*bbc.co.uk)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*xvideos.com|*xnxx.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*nytimes.com|*nyt.com)": {
-        ".*": {
-          "sni": "none"
-        }
-      },
-      "(*pixiv.net|*fanbox.cc)": {
-        ".*": {
-          "sni": "pixivision.net"
         }
       },
       "*.githubusercontent.com": {
@@ -1141,6 +1086,31 @@
           "sni": "none"
         }
       },
+      "zws1*.web.telegram.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "zws2*.web.telegram.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "zws3*.web.telegram.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "zws4*.web.telegram.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*youtube-nocookie.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
       "account-api.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1187,6 +1157,11 @@
         }
       },
       "community.github.com": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "resources.github.com": {
         ".*": {
           "sni": "none"
         }
@@ -1275,12 +1250,17 @@
           "sni": "www.baidu.com"
         }
       },
+      "*wikifunctions.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "calendar.proton.me": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
-      "(ok.ru|www.ok.ru)": {
+      "support.github.com": {
         ".*": {
           "sni": "none"
         }
@@ -1369,6 +1349,11 @@
       "*sukebei.nyaa.si": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*wikiversity.org": {
+        ".*": {
+          "sni": "none"
         }
       },
       "*xhamster42.desi": {
@@ -1467,6 +1452,21 @@
           "sni": "pixeldra.in"
         }
       },
+      "*wikisource.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*wikivoyage.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*wiktionary.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "_a5.behance.net": {
         ".*": {
           "sni": "a5.behance.net"
@@ -1490,6 +1490,11 @@
       "gist.github.com": {
         ".*": {
           "sni": "baidu.com"
+        }
+      },
+      "www.f-droid.org": {
+        ".*": {
+          "sni": "none"
         }
       },
       "www.gstatic.com": {
@@ -1517,6 +1522,11 @@
           "sni": "www.baidu.com"
         }
       },
+      "*mediawiki.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "*pinterest.com": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1525,6 +1535,21 @@
       "*startpage.com": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*wikibooks.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*wikipedia.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*wikiquote.org": {
+        ".*": {
+          "sni": "none"
         }
       },
       "a5.behance.net": {
@@ -1637,6 +1662,11 @@
           "sni": "www.baidu.com"
         }
       },
+      "*telegram.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "*whatsapp.com": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1645,6 +1675,16 @@
       "*whatsapp.net": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*wikidata.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "*wikinews.org": {
+        ".*": {
+          "sni": "none"
         }
       },
       "*xhamster.com": {
@@ -1672,6 +1712,11 @@
           "sni": "api.fanbox.cc"
         }
       },
+      "gql.twitch.tv": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "raw.incept.pw": {
         "^.*\\?DS_DOWNLOAD$": {
           "responseReplace": {
@@ -1692,6 +1737,11 @@
           "sni": "baidu.com"
         }
       },
+      "*android.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
       "*archive.org": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1707,6 +1757,11 @@
           "sni": "bilibili.tv"
         }
       },
+      "*blogger.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
       "*discord.com": {
         ".*": {
           "sni": "none"
@@ -1720,6 +1775,11 @@
       "*f-droid.org": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*gstatic.com": {
+        ".*": {
+          "sni": "g.cn"
         }
       },
       "*lumalabs.ai": {
@@ -1760,6 +1820,11 @@
       "*xvideos.com": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*youtube.com": {
+        ".*": {
+          "sni": "g.cn"
         }
       },
       "cn.vuejs.org": {
@@ -1822,6 +1887,11 @@
           "sni": "www.baidu.com"
         }
       },
+      "*google.com": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
       "*instagr.am": {
         ".*": {
           "sni": "www.baidu.com"
@@ -1840,6 +1910,11 @@
       "*rumble.com": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*telesco.pe": {
+        ".*": {
+          "sni": "none"
         }
       },
       "*tumblr.com": {
@@ -1862,6 +1937,11 @@
           "sni": "claude.ai"
         }
       },
+      "f-droid.org": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "i.pximg.net": {
         ".*": {
           "requestReplace": {
@@ -1876,6 +1956,16 @@
       "i.ytimg.com": {
         ".*": {
           "sni": "baidu.com"
+        }
+      },
+      "m.twitch.tv": {
+        ".*": {
+          "sni": "none"
+        }
+      },
+      "telegram.me": {
+        ".*": {
+          "sni": "none"
         }
       },
       "*.youtu.be": {
@@ -1936,6 +2026,11 @@
       "*rutube.ru": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*twitch.tv": {
+        ".*": {
+          "sni": "none"
         }
       },
       "*vimeo.com": {
@@ -2009,14 +2104,29 @@
           "sni": "www.baidu.com"
         }
       },
+      "*youtu.be": {
+        ".*": {
+          "sni": "g.cn"
+        }
+      },
       "www.ok.ru": {
         ".*": {
           "sni": "www.baidu.com"
         }
       },
+      "*.w.wiki": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "*bbc.com": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "*google*": {
+        ".*": {
+          "sni": "g.cn"
         }
       },
       "*itch.io": {
@@ -2064,6 +2174,11 @@
           "sni": "www.baidu.com"
         }
       },
+      "*tg.dev": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "*w.wiki": {
         ".*": {
           "sni": "mediawiki.org"
@@ -2084,9 +2199,19 @@
           "redirect": "www.reddit.com"
         }
       },
+      "*.t.me": {
+        ".*": {
+          "sni": "none"
+        }
+      },
       "*ok.ru": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "w.wiki": {
+        ".*": {
+          "sni": "none"
         }
       },
       "ig.me": {
@@ -2097,6 +2222,11 @@
       "ok.ru": {
         ".*": {
           "sni": "www.baidu.com"
+        }
+      },
+      "t.me": {
+        ".*": {
+          "sni": "none"
         }
       }
     },
