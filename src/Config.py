@@ -44,7 +44,7 @@ class Config:
 
     path: str
     name: str
-    raw_config: dict | list = field(init=False)
+    raw_config: JSON5Object = field(init=False)
     config: ExtendedDict = field(init=False)
 
     def __post_init__(self):
@@ -123,7 +123,9 @@ class SheasCealerConfig(Config):
     """
 
     def __post_init__(self):
-        self.raw_config: RawSheasCealerConfig = self.download(GITHUB_MIRRORS)
+        self.raw_config: RawSheasCealerConfig = self.download(  # type: ignore# pyright: ignore[reportIncompatibleVariableOverride, reportAttributeAccessIssue]
+            GITHUB_MIRRORS
+        )
 
         # 解析 raw_config
         self.config = self.__convert()
