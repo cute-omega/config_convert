@@ -38,13 +38,13 @@ class Config:
         name (str): 配置名称，用于日志记录
 
     Attributes:
-        raw_config (dict | list, initialized during object construction): 仅序列化的原始配置数据
+        raw_config (JSON5Object, initialized during object construction): 仅序列化的原始配置数据
         config (ExtendedDict, initialized during object construction): 解析后的Dev-Sidecar配置
     """
 
     path: str
     name: str
-    raw_config: dict | list = field(init=False)
+    raw_config: JSON5Object = field(init=False)
     config: ExtendedDict = field(init=False)
 
     def __post_init__(self):
@@ -123,7 +123,9 @@ class SheasCealerConfig(Config):
     """
 
     def __post_init__(self):
-        self.raw_config: RawSheasCealerConfig = self.download(GITHUB_MIRRORS)
+        self.raw_config: RawSheasCealerConfig = self.download(  # type: ignore  # pyright: ignore[reportIncompatibleVariableOverride, reportAttributeAccessIssue]
+            GITHUB_MIRRORS
+        )
 
         # 解析 raw_config
         self.config = self.__convert()

@@ -30,11 +30,21 @@ def main():
         excluded_domains: list[str] = load(f)
     logger.info(f"Loaded excluded_domains from {excluded_domains_path}")
 
-    # 获取 Dev-Sidecar 内置默认远程配置
-    default_remote = RemoteConfig(
-        "https://gitee.com/wangliang181230/dev-sidecar/raw/docmirror2.x/packages/core/src/config/remote_config.json",
-        "Default Remote",
-    )
+    try:
+        # 获取 Dev-Sidecar 内置默认远程配置
+        default_remote = RemoteConfig(
+            "https://gitee.com/wangliang181230/dev-sidecar/raw/docmirror2.x/packages/core/src/config/remote_config.json",
+            "Default Remote",
+        )
+    except RuntimeError as e:
+        logger.error(e.args[0])
+        logger.warning(
+            "Cannot get default remote config, assume it has not changed and fallback to only update my last result."
+        )
+        default_remote = RemoteConfig(
+            "https://cute-omega.github.io/other-assets/ds-config.json",
+            "Fallback Last Result",
+        )
 
     # 获取 Sheas Cealer 配置，默认为空列表
     sheas_cealer = SheasCealerConfig(
