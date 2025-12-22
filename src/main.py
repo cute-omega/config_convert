@@ -39,7 +39,7 @@ def main():
     except RuntimeError as e:
         logger.error(e.args[0])
         logger.warning(
-            "Cannot get default remote config, assert it not changed and fallback to only update my last result."
+            "Cannot get default remote config, assume it has not changed and fallback to only update my last result."
         )
         default_remote = RemoteConfig(
             "https://cute-omega.github.io/other-assets/ds-config.json",
