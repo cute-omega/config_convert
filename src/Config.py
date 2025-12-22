@@ -123,7 +123,7 @@ class SheasCealerConfig(Config):
     """
 
     def __post_init__(self):
-        self.raw_config: RawSheasCealerConfig = self.download(  # type: ignore# pyright: ignore[reportIncompatibleVariableOverride, reportAttributeAccessIssue]
+        self.raw_config: RawSheasCealerConfig = self.download(  # type: ignore  # pyright: ignore[reportIncompatibleVariableOverride, reportAttributeAccessIssue]
             GITHUB_MIRRORS
         )
 
