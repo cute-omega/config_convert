@@ -1,9 +1,8 @@
-import datetime
 import logging
 from json import dump
 from json5 import load
 import argparse
-from datetime import timezone, timedelta,datetime
+from datetime import timezone, timedelta, datetime
 
 from header import final_config_path, manual_path, excluded_domains_path
 from Config import (
