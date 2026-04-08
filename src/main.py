@@ -36,12 +36,12 @@ def main():
         # 获取 Dev-Sidecar 内置默认远程配置
         official = RemoteConfig(
             "https://gitee.com/wangliang181230/dev-sidecar-config/raw/main/remote_config.json",
-            "Default Remote",
+            "Official",
         )
     except RuntimeError as e:
         logger.error(e.args[0])
         logger.warning(
-            "Failed to get default remote config, assume it has not changed and fallback to only update my last result."
+            "Failed to get official config, assume it has not changed and fallback to only update my last result."
         )
         official = RemoteConfig(
             "https://cute-omega.github.io/other-assets/ds-config.json",
@@ -68,10 +68,10 @@ def main():
 
     # 合并配置
     final_config = (
-        official.config
-        + _8odream.config
+        manual.config
         + sheas_cealer.config
-        + manual.config
+        + _8odream.config
+        + official.config
         - excluded_domains
     )
     logger.info("Finish merging all configs and clearing excluded domain rules")

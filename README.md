@@ -32,6 +32,7 @@ cd config_convert
 pip3 install -r requirements.txt
 python3 src/main.py
 ```
+
 最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
 
 最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
