@@ -1,6 +1,6 @@
 # Sheas Cealer 转 Dev-Sidecar 的配置转换器
 
-把Sheas Cealer的配置文件转换成Dev-Sidecar的配置文件，并支持与其他Dev-Sidecar配置合并。目前由GitHub Actions自动执行，当前每8小时更新一次配置。
+把Sheas Cealer的配置文件转换成Dev-Sidecar的配置文件，并支持与其他Dev-Sidecar配置合并。目前由GitHub Actions自动执行，当前每8小时更新一次配置。配置id为`io.github.cute-omega`。
 
 ## 用法
 
@@ -10,7 +10,7 @@
 
 `official.config + 8odream.config + sheas_cealer.config + manual.config - excluded_domains`
 
-`official.config`来自[Dev-Sidecar内置的默认远程配置地址](https://gitee.com/wangliang181230/dev-sidecar/raw/docmirror2.x/packages/core/src/config/remote_config.json)
+`official.config`来自[Dev-Sidecar内置的默认远程配置地址](https://gitee.com/wangliang181230/dev-sidecar-config)
 
 `8odream.config`来自[8odream/Dev-sidecar-8odream-config](https://github.com/8odream/Dev-sidecar-8odream-config)
 
@@ -32,6 +32,8 @@ cd config_convert
 pip3 install -r requirements.txt
 python3 src/main.py
 ```
+最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
+
 最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
 
 ## 开发

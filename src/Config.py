@@ -53,13 +53,13 @@ class Config:
         Subclasses should override this method to implement configuration loading,
         and call super().__post_init__() at the end to log the loading event.
         """
-        logger.info(f"Loaded {self.name} config from {self.path}")
+        logger.info(f"Finish loading {self.name} config from {self.path}")
 
     def save(self, fn: str):
         sorted_config = sort_json_object(self.config)
         with open(fn, "w") as f:
             dump(sorted_config, f, ensure_ascii=False, indent=2)
-        logger.info(f"Saved {self.name} config to {fn}")
+        logger.info(f"Finish saving {self.name} config to {fn}")
 
     def download(self, mirrors: list[str]) -> JSON5Object:
         """从远程下载配置并反序列化为JSON5对象，会尝试所有配置的镜像
@@ -90,11 +90,11 @@ class Config:
                     raise ValueError(f"HTTP {r.status_code} {r.reason} for {url}")
             except Exception as e:
                 logger.warning(f"Failed to download {self.name} config from {url}: {e}")
-                if r:
+                if r is None:
+                    logger.debug("Failed to receive any response.")
+                else:
                     logger.debug(f"Request status: {r.status_code} {r.reason}")
                     show_raw_text_for_debugging(self.name, r.text, logger)
-                else:
-                    logger.debug("No response received.")
                 continue
             else:
 
@@ -103,12 +103,12 @@ class Config:
                     result: JSON5Object = loads(config_text)
                 except Exception as e:
                     logger.warning(
-                        f"Downloaded {self.name} config from {url} cannot be parsed as JSON5: {e}"
+                        f"Failed to parse downloaded {self.name} config from {url} as JSON5: {e}"
                     )
                     show_raw_text_for_debugging(self.name, config_text, logger)
                     continue
                 else:
-                    logger.info(f"Downloaded latest {self.name} config from {url}")
+                    logger.info(f"Finish downloading latest {self.name} config from {url}")
                     return result
         raise RuntimeError(
             f"Failed to download a valid {self.name} config from all mirrors: {mirrors}"
@@ -129,7 +129,7 @@ class SheasCealerConfig(Config):
 
         # 解析 raw_config
         self.config = self.__convert()
-        logger.info(f"Converted Sheas Cealer config to Dev-Sidecar config")
+        logger.info(f"Finish converting Sheas Cealer config to Dev-Sidecar config")
         super().__post_init__()
 
     def __convert(self) -> ExtendedDict:
