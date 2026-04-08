@@ -34,7 +34,7 @@ def main():
 
     try:
         # 获取 Dev-Sidecar 内置默认远程配置
-        default_remote = RemoteConfig(
+        official = RemoteConfig(
             "https://gitee.com/wangliang181230/dev-sidecar-config/raw/main/remote_config.json",
             "Default Remote",
         )
@@ -43,7 +43,7 @@ def main():
         logger.warning(
             "Failed to get default remote config, assume it has not changed and fallback to only update my last result."
         )
-        default_remote = RemoteConfig(
+        official = RemoteConfig(
             "https://cute-omega.github.io/other-assets/ds-config.json",
             "Fallback Last Result",
         )
@@ -61,19 +61,21 @@ def main():
     # 读取 手动配置
     manual = LocalConfig(manual_path, "Manual")
     # 配置版本应是“GMT+8的开始编辑时间，固定位数为年月日+时分”（年四位，月份两位，日期两位，小时两位，分钟两位），并且是JSON意义上的number类型
-    config_version = int(datetime.now(tz=timezone(timedelta(hours=8))).strftime("%Y%m%d%H%M"))
+    config_version = int(
+        datetime.now(tz=timezone(timedelta(hours=8))).strftime("%Y%m%d%H%M")
+    )
     manual.config["app"]["metaInfo"]["version"] = config_version
 
     # 合并配置
     final_config = (
-        default_remote.config
+        official.config
         + _8odream.config
         + sheas_cealer.config
         + manual.config
         - excluded_domains
     )
     logger.info("Finish merging all configs and clearing excluded domain rules")
-    
+
     # 保存 Dev-Sidecar 配置
     # TODO: 考虑将此代码块重构为使用 Config.save 来保存最终配置。
     # 这样可以将所有配置保存逻辑集中到 Config 类/模块中，保证一致性并减少重复代码。
