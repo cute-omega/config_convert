@@ -8,17 +8,17 @@
 
 ## 脚本当前工作流
 
-`official.config + 8odream.config + sheas_cealer.config + manual.config - excluded_domains`
-
-`official.config`来自[Dev-Sidecar内置的默认远程配置地址](https://gitee.com/wangliang181230/dev-sidecar-config)
-
-`8odream.config`来自[8odream/Dev-sidecar-8odream-config](https://github.com/8odream/Dev-sidecar-8odream-config)
-
-`sheas_cealer.config`转换自[SpaceTimee/Cealing-Host](https://github.com/SpaceTimee/Cealing-Host)
+`manual.config + sheas_cealer.config + 8odream.config + official.config - excluded_domains`
 
 `manual.config`是[本仓库手动配置的收尾设置文件](https://github.com/cute-omega/config_convert/blob/main/assets/manual_config.json5)，包含一些额外的配置调整。
 
-**注意**：示范中的加法不满足交换律，从左向右结合。右边的配置效力高于左边的。
+`sheas_cealer.config`转换自[SpaceTimee/Cealing-Host](https://github.com/SpaceTimee/Cealing-Host)
+
+`8odream.config`来自[8odream/Dev-sidecar-8odream-config](https://github.com/8odream/Dev-sidecar-8odream-config)
+
+`official.config`来自[Dev-Sidecar内置的默认远程配置地址](https://gitee.com/wangliang181230/dev-sidecar-config)
+
+**注意**：示范中的加法不满足交换律，从左向右结合。左边的配置效力高于右边的。
 
 代码已经得到优化，更方便的支持扩展其他所需合并的配置文件。
 
@@ -32,8 +32,6 @@ cd config_convert
 pip3 install -r requirements.txt
 python3 src/main.py
 ```
-
-最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
 
 最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
 
