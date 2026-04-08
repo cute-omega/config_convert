@@ -35,6 +35,8 @@ python3 src/main.py
 
 最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
 
+最好用`uv sync`同步环境，`requirements.txt`未必及时更新。
+
 ## 开发
 
 请Fork dev分支，更新也请向dev分支发PR。
