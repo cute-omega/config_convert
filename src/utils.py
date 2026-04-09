@@ -1,11 +1,13 @@
 from logging import Logger, getLogger
 from ipaddress import ip_address
+from header import JSON5Object
 
 __all__ = [
     "is_ipv6_address",
     "show_raw_text_for_debugging",
     "sort_json_object",
 ]
+
 
 def is_ipv6_address(target: str) -> bool:
     # 处理形如 [240e::] 的格式
@@ -23,10 +25,11 @@ def show_raw_text_for_debugging(name: str, msg: str, logger: Logger):
     logger.debug(f"{msg[:500]}{'...(truncated)' if len(msg) > 500 else ''}")
 
 
-def sort_json_object(obj):
+def sort_json_object(obj: JSON5Object) -> JSON5Object:
     """Recursively sort mapping keys by length (desc) then alphabetically (asc)."""
 
     if isinstance(obj, dict):
+
         def sort_key(item):
             k = item[0]
             k_str = k if isinstance(k, str) else str(k)

@@ -29,13 +29,26 @@ class ExtendedDict(dict):
         if dest is None:
             dest = {}
 
-        stack = [(dest, self)]
+        stack = [
+            (ExtendedDict(dest) if not isinstance(dest, ExtendedDict) else dest, self)
+        ]
         while stack:
             target_dict, source_dict = stack.pop()
             for key, value in source_dict.items():
+                # Ensure both sides are ExtendedDict for further merging
                 if key in target_dict:
                     if isinstance(value, dict) and isinstance(target_dict[key], dict):
-                        stack.append((target_dict[key], value))
+                        # Convert to ExtendedDict if not already
+                        if not isinstance(target_dict[key], ExtendedDict):
+                            target_dict[key] = ExtendedDict(target_dict[key])
+                        if not isinstance(value, ExtendedDict):
+                            value = ExtendedDict(value)
+                        stack.append(
+                            (
+                                target_dict[key],
+                                value,  # pyright: ignore[reportArgumentType]
+                            )
+                        )
                     elif rewrite:
                         target_dict[key] = value
                 else:
