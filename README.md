@@ -8,7 +8,7 @@
 
 ## 脚本当前工作流
 
-`manual.config + sheas_cealer.config + 8odream.config + official.config - excluded_domains`
+`(manual.config + sheas_cealer.config + 8odream.config + official.config) - excluded_domains`
 
 `manual.config`是[本仓库手动配置的收尾设置文件](https://github.com/cute-omega/config_convert/blob/main/assets/manual_config.json5)，包含一些额外的配置调整。
 

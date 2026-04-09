@@ -10,6 +10,7 @@ from Config import (
     GithubConfig,
     LocalConfig,
     RemoteConfig,
+    MemoryConfig,
 )
 from utils import sort_json_object
 
@@ -39,14 +40,21 @@ def main():
             "Official",
         )
     except RuntimeError as e:
-        logger.error(e.args[0])
+        logger.error(e)
         logger.warning(
             "Failed to get official config, assume it has not changed and fallback to only update my last result."
         )
-        official = RemoteConfig(
-            "https://cute-omega.github.io/other-assets/ds-config.json",
-            "Fallback Last Result",
-        )
+        try:
+            official = RemoteConfig(
+                "https://cute-omega.github.io/other-assets/ds-config.json",
+                "Fallback Last Result",
+            )
+        except RuntimeError as e:
+            logger.error(e)
+            logger.warning(
+                "Failed to get fallback config, assume it has not changed and fallback to local file."
+            )
+            official = LocalConfig(final_config_path, "Local Last Result")
 
     # 获取 Sheas Cealer 配置，默认为空列表
     sheas_cealer = SheasCealerConfig(
@@ -77,15 +85,9 @@ def main():
     logger.info("Finish merging all configs and clearing excluded domain rules")
 
     # 保存 Dev-Sidecar 配置
-    # TODO: 考虑将此代码块重构为使用 Config.save 来保存最终配置。
-    # 这样可以将所有配置保存逻辑集中到 Config 类/模块中，保证一致性并减少重复代码。
-    # 具体来说，请评估将写入 final_config_path 的逻辑（包括 ensure_ascii 和 indent 等格式化选项）
-    # 是否可以封装到 Config.save 中，并将此处的写入调用替换为该方法。这样可以让将来对保存流程的
-    # 修改更易维护。
-    sorted_final_config = sort_json_object(final_config)
-    with open(final_config_path, "w") as f:
-        dump(sorted_final_config, f, ensure_ascii=False, indent=2)
-    logger.info(f"Finish saving final Dev-Sidecar config as {final_config_path}")
+    sorted = sort_json_object(final_config)
+    FinalSorted = MemoryConfig("Memory", "Final Sorted", sorted)
+    FinalSorted.save(final_config_path)
 
 
 if __name__ == "__main__":

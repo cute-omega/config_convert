@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, InitVar
 from logging import getLogger
 from requests import get
 from json5 import loads, load
@@ -61,11 +61,11 @@ class Config:
             dump(sorted_config, f, ensure_ascii=False, indent=2)
         logger.info(f"Finish saving {self.name} config to {fn}")
 
-    def download(self, mirrors: list[str]) -> JSON5Object:
+    def download(self, mirrors: list[str] | None = None) -> JSON5Object:
         """从远程下载配置并反序列化为JSON5对象，会尝试所有配置的镜像
 
         Args:
-            mirrors (list[str]): 下载时指定的镜像域名列表，可以为空列表
+            mirrors (list[str] | None, optional): 下载时指定的镜像域名列表，可以为空列表. Defaults to None.
 
         Raises:
             RuntimeError: 所有镜像下载全部失败，或内容全部不可反序列化
@@ -73,6 +73,8 @@ class Config:
         Returns:
             JSON5Object: 反序列化后的JSON5对象
         """
+        if mirrors is None:
+            mirrors = [""]
         for mirror in mirrors:
             if mirror:
                 url = f"https://{mirror}/{self.path}"
@@ -108,7 +110,9 @@ class Config:
                     show_raw_text_for_debugging(self.name, config_text, logger)
                     continue
                 else:
-                    logger.info(f"Finish downloading latest {self.name} config from {url}")
+                    logger.info(
+                        f"Finish downloading latest {self.name} config from {url}"
+                    )
                     return result
         raise RuntimeError(
             f"Failed to download a valid {self.name} config from all mirrors: {mirrors}"
@@ -214,6 +218,21 @@ class RemoteConfig(Config):
     """
 
     def __post_init__(self):
-        self.raw_config: JSON5Object = self.download([""])
+        self.raw_config: JSON5Object = self.download()
+        self.config = ExtendedDict(self.raw_config)
+        super().__post_init__()
+
+
+@dataclass
+class MemoryConfig(Config):
+    """内存配置，直接使用传入的JSON5对象作为配置内容。
+
+    path参数仍然保留为字符串标识；真正的配置内容通过初始化时的 raw_config 传入。
+    """
+
+    config_data: InitVar[JSON5Object]
+
+    def __post_init__(self, config_data: JSON5Object):
+        self.raw_config = config_data
         self.config = ExtendedDict(self.raw_config)
         super().__post_init__()
